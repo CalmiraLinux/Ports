@@ -6,7 +6,19 @@
 
 cd /usr/src
 
-wget 
-tar -xf 
-cd 
+wget https://lx4u.ru/downloads/packages/freetype-2.10.4.tar.xz
+tar -xf freetype-2.10.4.tar.xz
+cd freetype-2.10.4
 
+dialog  --backtitle "Система портов Calmira Linux" --title " WARNING " \
+	--msgbox "Вам следует переустановить этот пакет после установки/сборки harfbuzz из-за циклической зависимости!" 0 0
+
+sed -ri "s:.*(AUX_MODULES.*valid):\1:" modules.cfg &&
+
+sed -r "s:.*(#.*SUBPIXEL_RENDERING) .*:\1:" \
+    -i include/freetype/config/ftoption.h  &&
+
+./configure --prefix=/usr --enable-freetype-config --disable-static --without-harfbuzz
+
+make
+make install

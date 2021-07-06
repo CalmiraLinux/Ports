@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# Скрипт для обновления портов в Calmira Linux
+# (C) 2021 Linuxoid85 <linuxoid85@gmail.com>
+#
+
+cd /usr/ports
+
+case $1 in
+	stable)
+		echo -e "\e[1mОбновление портов со стабильной ветки...\e[0m"
+		wget https://gitlab.com/Linuxoid85/calmira_ports/-/raw/main/ports-lx4_1.0.txz
+		tar -xf ports-lx4_1.0.txz
+		rm update-ports
+	;;
+	
+	testing)
+		echo -e "\e[1;31mНа данный момент тестовой ветки не существует.\e[0m"
+		exit 1
+	;;
+esac

@@ -1,0 +1,16 @@
+#!/bin/bash
+# Build package groff from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/groff-1.22.4.tar.gz
+tar -xf groff-1.22.4.tar.gz
+cd groff-1.22.4
+
+PAGE=A4 ./configure --prefix=/usr
+
+make -j1
+make install

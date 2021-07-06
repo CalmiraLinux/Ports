@@ -1,0 +1,18 @@
+#!/bin/bash
+# Build package dosfstools from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/dosfstools-4.2.tar.gz
+tar -xf dosfstools-4.2.tar.gz
+cd dosfstools-4.2
+
+./configure --prefix=/usr               \
+            --enable-compat-symlinks    \
+            --mandir=/usr/share/man
+            
+make
+make install

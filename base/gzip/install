@@ -1,0 +1,16 @@
+#!/bin/bash
+# Build package gzip from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/gzip-1.10.tar.xz
+tar -xf gzip-1.10.tar.xz
+cd gzip-1.10
+
+./configure --prefix=/usr
+
+make
+make install

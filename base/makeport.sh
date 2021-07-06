@@ -8,7 +8,11 @@
 # $PACKAGE - имя пакета
 
 if [ -z $1 ]; then
-	yad --title="Ошибка" --text="Не введено имя программы"
+	if [ -z $DESKTOP ]; then
+		echo -e "\e[1;31mНе введено имя программы\e[0m"
+	else
+		yad --title="Ошибка" --text="Не введено имя программы"
+	fi
 	exit 0
 fi
 

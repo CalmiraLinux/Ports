@@ -1,0 +1,16 @@
+#!/bin/bash
+# Build package sysvinit from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/sysvinit-2.99.tar.xz https://raw.githubusercontent.com/Linux4Yourself/Linux4Yourself.Book.Packages/develop/patches/sysvinit-2.99-consolidated-1.patch
+tar -xf sysvinit-2.99.tar.xz
+cd sysvinit-2.99
+
+patch -Np1 -i ../sysvinit-2.99-consolidated-1.patch
+
+make
+make install

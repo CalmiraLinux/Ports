@@ -1,0 +1,23 @@
+#!/bin/bash
+# Build package emacs from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/emacs-27.2.tar.xz
+tar -xf emacs-27.2.tar.xz
+cd emacs-27.2
+
+./configure --prefix=/usr --localstatedir=/var
+
+make
+make install
+chown -v -R root:root /usr/share/emacs/27.1
+
+dialog  --backtitle "Система портов Calmira Linux" --title " WARNING " \
+	--msgbox "Emacs устанавливает файлы иконок в /usr/share/icons/hicolor. После того, как вы скомпилируете Xorg/Wayland и GTK+ 2.24.33 или 3.24.25, вы можете улучшить производительность и использование памяти, обновив файл /usr/share/icons/hicolor/index.theme. Выполните:
+	
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor
+После сборки emacs." 0 0

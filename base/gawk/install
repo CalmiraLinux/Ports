@@ -17,7 +17,7 @@ make
 make install
 
 dialog  --backtitle "Система портов Calmira Linux" --title " ASK " \
-	--yesno "Установить документацию пакета gawk?"
+	--yesno "Установить документацию пакета gawk?" 0 0
 
 case $? in
 	0)

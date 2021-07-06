@@ -1,0 +1,21 @@
+#!/bin/bash
+# Build package openssl from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/openssl-1.1.1k.tar.gz
+tar -xf openssl-1.1.1k.tar.gz
+cd openssl-1.1.1k
+
+./config --prefix=/usr         \
+         --openssldir=/etc/ssl \
+         --libdir=lib          \
+         shared                \
+         zlib-dynamic
+         
+make
+sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
+make MANSUFFIX=ssl install

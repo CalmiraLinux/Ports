@@ -1,0 +1,24 @@
+#!/bin/bash
+# Build package kmod from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/kmod-29.tar.xz
+tar -xf kmod-29.tar.xz
+cd kmod-29
+
+./configure --prefix=/usr          \
+            --sysconfdir=/etc      \
+            --with-xz              \
+            --with-zstd            \
+            --with-zlib
+            
+make
+make install
+
+for target in depmod insmod lsmod modinfo modprobe rmmod; do
+  ln -sfv kmod /usr/bin/$target
+done

@@ -1,0 +1,20 @@
+#!/bin/bash
+# Build package libelf from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/elfutils-0.185.tar.bz2
+tar -xf elfutils-0.185.tar.bz2
+cd elfutils-0.185
+
+./configure --prefix=/usr                \
+            --disable-debuginfod         \
+            --enable-libdebuginfod=dummy
+            
+make
+make -C libelf install
+install -vm644 config/libelf.pc /usr/lib/pkgconfig
+rm /usr/lib/libelf.a

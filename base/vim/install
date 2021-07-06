@@ -1,0 +1,58 @@
+#!/bin/bash
+# Build package vim from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/vim-8.2.3060.tar.gz
+tar -xf vim-8.2.3060.tar.gz
+cd vim-8.2.3060
+
+echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
+./configure --prefix=/usr
+
+make
+make install
+
+for L in  /usr/share/man/{,*/}man1/vim.1; do
+    ln -sv vim.1 $(dirname $L)/vi.1
+done
+ln -sv ../vim/vim82/doc /usr/share/doc/vim
+ln -sv vim /usr/bin/vi
+
+dialog  --backtitle "Система сборки Calmira Linux" --title " ASK " \
+	--yesno "Выполнить настройку пакета? Если вы обновляете его до новой версии, переустанавливаете или вы уже создали/отредактировани нужные/уже существующие конфиги для vim, то ответьте 'Нет', дабы не потерять свои настройки.
+	
+Если вы ответите 'Да', то Система Портов создаст стандартные конфиги. В том случае, если нужные файлы уже существуют, то они будут удалены и на их месте созданы новые со стандартным значением." 0 0
+
+case $? in
+	0)
+		echo -e "\e[1mВыбрана настройка пакета...\e[0m"
+		cat > /etc/vimrc << "EOF"
+" Begin /etc/vimrc
+
+" Ensure defaults are set before customizing settings, not after
+source $VIMRUNTIME/defaults.vim
+let skip_defaults_vim=1 
+
+set nocompatible
+set backspace=2
+set mouse=
+set nu
+set lbr
+syntax on
+if (&term == "xterm") || (&term == "putty")
+  set background=dark
+endif
+
+" End /etc/vimrc
+EOF
+	;;
+	
+	1)
+		echo -e "\e[1;31mНастройка пакета НЕ была выбрана.\e[0m"
+		exit 0
+	;;
+esac

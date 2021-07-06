@@ -1,0 +1,34 @@
+#!/bin/bash
+# Build package iproute2 from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/iproute2-5.12.0.tar.xz
+tar -xf iproute2-5.12.0.tar.xz
+cd iproute2-5.12.0
+
+sed -i /ARPD/d Makefile
+rm -fv man/man8/arpd.8
+sed -i 's/.m_ipt.o//' tc/Makefile
+
+make
+make install
+
+dialog  --backtitle "Система портов Calmira Linux" --title " ASK " \
+	--yesno "Установить документацию пакета iproute2?"
+
+case $? in
+	0)
+		echo -e "\e[1mВыбрана установка документации...\e[0m"
+		mkdir -v /usr/share/doc/iproute2
+		cp -v COPYING README* /usr/share/doc/iproute2
+	;;
+	
+	1)
+		echo -e "\e[1;31mУстановка документации НЕ выбрана.\e[0m"
+		exit 0
+	;;
+esac

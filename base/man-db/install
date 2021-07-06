@@ -1,0 +1,22 @@
+#!/bin/bash
+# Build package man-db from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/man-db-2.9.4.tar.xz
+tar -xf man-db-2.9.4.tar.xz
+cd man-db-2.9.4
+
+./configure --prefix=/usr                        \
+            --sysconfdir=/etc                    \
+            --disable-setuid                     \
+            --enable-cache-owner=bin             \
+            --with-browser=/usr/bin/lynx         \
+            --with-vgrind=/usr/bin/vgrind        \
+            --with-grap=/usr/bin/grap
+            
+make
+make install

@@ -1,0 +1,16 @@
+#!/bin/bash
+# Build package libpipeline from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/libpipeline-1.5.3.tar.gz
+tar -xf libpipeline-1.5.3.tar.gz
+cd libpipeline-1.5.3
+
+./configure --prefix=/usr
+
+make
+make install

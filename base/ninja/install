@@ -1,0 +1,27 @@
+#!/bin/bash
+# Build package ninja from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/ninja-1.10.2.tar.gz
+tar -xf ninja-1.10.2.tar.gz
+cd ninja-1.10.2
+
+dialog  --backtitle "Система портов Calmira Linux" --title " WARNING " \
+	--msgbox "ninja запускает максимальное количество процессов параллельно. По умолчанию это количество ядер в системе плюс два. В некоторых случаях это может привести к перегреву ЦП или нехватке памяти в системе. Для того, чтобы ограничить число потоков, перед сборкой этого порта экспортируйте переменную NINJAJOBS, установив её значение N, где N - число потоков:
+export NINJAJOBS=4 ограничит число потокод до четырёх." 0 0
+
+sed -i '/int Guess/a \
+  int   j = 0;\
+  char* jobs = getenv( "NINJAJOBS" );\
+  if ( jobs != NULL ) j = atoi( jobs );\
+  if ( j > 0 ) return j;\
+' src/ninja.cc
+
+python3 configure.py --bootstrap
+install -vm755 ninja /usr/bin/
+install -vDm644 misc/bash-completion /usr/share/bash-completion/completions/ninja
+install -vDm644 misc/zsh-completion  /usr/share/zsh/site-functions/_ninja

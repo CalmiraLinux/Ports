@@ -21,12 +21,12 @@ dialog  --backtitle "Система портов Calmira Linux" --title " ASK " 
 
 case $? in
 	0)
-		echo -e "\e[1mУстанавливается документация...\e[0m"
+		echo -e "\e[1mВыбрана установка документации...\e[0m"
 		install -v -m644 doc/*.{html,png,css} /usr/share/doc/expat
 	;;
 	
 	1)
-		echo -e "\e[1;31mДокументация установлена НЕ будет!\e[0m"
+		echo -e "\e[1;31mУстановка документации НЕ была выбрана.\e[0m"
 		exit 0
 	;;
 esac

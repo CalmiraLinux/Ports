@@ -1,0 +1,17 @@
+#!/bin/bash
+# Build package automake from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/automake-1.16.3.tar.xz
+tar -xf automake-1.16.3.tar.xz
+cd automake-1.16.3
+
+sed -i "s/''/etags/" t/tags-lisp-space.sh
+./configure --prefix=/usr
+
+make
+make install

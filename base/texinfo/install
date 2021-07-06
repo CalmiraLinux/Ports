@@ -1,0 +1,25 @@
+#!/bin/bash
+# Build package texinfo from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/texinfo-6.7.tar.xz
+tar -xf texinfo-6.7.tar.xz
+cd texinfo-6.7
+
+./configure --prefix=/usr
+
+make
+make install
+make TEXMF=/usr/share/texmf install-tex
+
+echo -e "\n\n\e[1;32mОбновление info-страниц...\e[0m"
+pushd /usr/share/info
+  rm -v dir
+  for f in *
+    do install-info $f dir 2>/dev/null
+  done
+popd

@@ -1,0 +1,40 @@
+#!/bin/bash
+# Build package make-ca from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/make-ca-1.7.tar.xz
+tar -xf make-ca-1.7.tar.xz
+cd make-ca-1.7
+
+dialog  --backtitle "Система портов Calmira Linux" --title " WARNING " \
+	--msgbox "Для сборки этого пакета вам необходим доступ в интернет. Если у вас его нет, прервите установку и подключитесь к сети, после чего можете продолжать установку." 0 0
+	
+make install
+install -vdm755 /etc/ssl/local
+
+/usr/sbin/make-ca -g
+
+wget http://www.cacert.org/certs/root.crt &&
+wget http://www.cacert.org/certs/class3.crt &&
+openssl x509 -in root.crt -text -fingerprint -setalias "CAcert Class 1 root" \
+        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
+        > /etc/ssl/local/CAcert_Class_1_root.pem &&
+openssl x509 -in class3.crt -text -fingerprint -setalias "CAcert Class 3 root" \
+        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
+        > /etc/ssl/local/CAcert_Class_3_root.pem &&
+/usr/sbin/make-ca -r -f
+
+
+openssl x509 -in /etc/ssl/certs/Makebelieve_CA_Root.pem \
+             -text \
+             -fingerprint \
+             -setalias "Disabled Makebelieve CA Root" \
+             -addreject serverAuth \
+             -addreject emailProtection \
+             -addreject codeSigning \
+       > /etc/ssl/local/Disabled_Makebelieve_CA_Root.pem &&
+/usr/sbin/make-ca -r -f

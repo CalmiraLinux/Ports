@@ -1,0 +1,44 @@
+#!/bin/bash
+# Build package e2fsprogs from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/e2fsprogs-1.46.2.tar.gz
+tar -xf e2fsprogs-1.46.2.tar.gz
+cd e2fsprogs-1.46.2
+
+./configure --prefix=/usr             \
+             --sysconfdir=/etc        \
+             --enable-elf-shlibs      \
+             --disable-libblkid       \
+             --disable-libuuid        \
+             --disable-uuidd          \
+             --disable-fsck           \
+             --enable-symlink-install \
+             --enable-relative-symlinks
+             
+make
+make install
+
+gunzip -v /usr/share/info/libext2fs.info.gz
+install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info
+
+dialog  --backtitle "Система портов Calmira Linux" --title " ASK " \
+	--yesno "Установить документацию пакета e2fsprogs?" 0 0
+
+case $? in
+	0)
+		echo -e "\e[1mВыбрана установка документации...\e[0m"
+		makeinfo -o      doc/com_err.info ../lib/et/com_err.texinfo
+		install -v -m644 doc/com_err.info /usr/share/info
+		install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info
+	;;
+	
+	1)
+		echo -e "\e[1;31mУстановка документации НЕ была выбрана.\e[0m"
+		exit 0
+	;;
+esac

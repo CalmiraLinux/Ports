@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/file-5.40.tar.gz
+tar -xf file-5.40.tar.gz;
+cd file-5.40
+
+./configure --prefix=/usr
+make
+make install

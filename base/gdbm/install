@@ -1,0 +1,18 @@
+#!/bin/bash
+# Build package gdbm from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/gdbm-1.20.tar.gz
+tar -xf gdbm-1.20.tar.gz
+cd gdbm-1.20
+
+./configure --prefix=/usr    \
+            --disable-static \
+            --enable-libgdbm-compat
+            
+make
+make install

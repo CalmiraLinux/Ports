@@ -1,0 +1,18 @@
+#!/bin/bash
+# Build package mpfr from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/mpfr-4.1.0.tar.xz
+tar -xf mpfr-4.1.0.tar.xz
+cd mpfr-4.1.0
+
+./configure --prefix=/usr        \
+            --disable-static     \
+            --enable-thread-safe
+
+make
+make install

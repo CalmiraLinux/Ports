@@ -1,0 +1,16 @@
+#!/bin/bash
+# Build package libcap from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/libcap-2.51.tar.xz
+tar -xf libcap-2.51.tar.xz
+cd libcap-2.51
+
+sed -i '/install -m.*STA/d' libcap/Makefile
+make prefix=/usr lib=lib
+make prefix=/usr lib=lib install
+chmod -v 755 /lib/lib{cap,psx}.so.2

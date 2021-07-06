@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/zlib-ng-2.0.3.tar.gz
+tar -xf zlib-ng-2.0.3.tar.gz
+cd zlib-ng-2.0.3
+
+./configure --prefix=/usr --zlib-compat --native
+make
+make install
+rm -fv /usr/lib/libz.a

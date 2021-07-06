@@ -1,0 +1,34 @@
+#!/bin/bash
+
+cd /usr/src
+
+wget https://ftp.gnu.org/gnu/glibc/glibc-2.33.tar.xz https://raw.githubusercontent.com/Linux4Yourself/Linux4Yourself.Book.Packages/develop/patches/glibc-2.33-fhs-1.patch https://www.iana.org/time-zones/repository/releases/tzdata2021a.tar.gz
+tar -xf glibc-2.33.tar.xz
+cd glibc-2.33
+
+patch -Np1 -i ../glibc-2.33-fhs-1.patch
+sed -e '402a\      *result = local->data.services[database_index];' \
+    -i nss/nss_database.c
+mkdir  build
+cd     build
+
+../configure                             \
+      --prefix=/usr                      \
+      --disable-werror                   \
+      --enable-kernel=3.2                \
+      --with-headers=/usr/include        \
+      --libexecdir=/usr/lib              \
+      libc_cv_slibdir=/usr/lib           \
+      libc_cv_include_x86_isa_level=no
+
+make
+sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
+
+make install
+cp -v ../nscd/nscd.conf /etc/nscd.conf
+
+localedef -i POSIX -f UTF-8 C.UTF-8 2> /dev/null || true
+localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+
+ldconfig

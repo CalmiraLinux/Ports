@@ -1,0 +1,39 @@
+#!/bin/bash
+# Build package sed from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/sed-4.8.tar.xz
+tar -xf sed-4.8.tar.xz
+cd sed-4.8
+
+./configure --prefix=/usr
+make
+
+dialog  --backtitle "Система портов Calmira Linux" --title " ASK " \
+	--yesno "По умолчанию пакет sed собирается без документации. Желаете установить ещё и документацию?" 0 0
+
+case $? in
+	0)
+		dialog  --backtitle "Система портов Calmira Linux" --title " MESSAGE " \	
+			--msgbox "Выбрана сборка документации." 0 0
+		touch PortDoc
+		make html
+	;;
+	
+	1)
+		dialog  --backtitle "Система портов Calmira Linux" --title " MESSAGE " \
+			--msgbox "Сборка документации НЕ выбрана." 0 0
+	;;
+esac
+
+make install
+if [ -f "PortDoc" ]; then
+	echo -e "\e[1mУстанавливается документация...\e[0m"
+	install -d -m755           /usr/share/doc/sed
+	install -m644 doc/sed.html /usr/share/doc/sed
+fi
+

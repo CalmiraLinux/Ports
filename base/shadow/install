@@ -1,0 +1,54 @@
+#!/bin/bash
+# Build package shadow from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/shadow-4.8.1.tar.xz
+tar -xf shadow-4.8.1.tar.xz
+cd shadow-4.8.1
+
+sed -i 's/groups$(EXEEXT) //' src/Makefile.in
+find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \;
+find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
+find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;
+
+
+sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD SHA512:' \
+    -e 's:/var/spool/mail:/var/mail:'                 \
+    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                \
+    -i etc/login.defs
+
+sed -i 's/1000/999/' etc/useradd
+
+if [ != -f  "/usr/bin/passwd" ]; then
+	touch /usr/bin/passwd
+fi
+
+./configure --sysconfdir=/etc \
+            --with-group-name-max-length=32
+            
+make
+make install
+
+pwconv
+grpconv
+
+dialog --backtitle "Система портов Calmira Linux" --title " ASK " --clear \
+       --yesno "Задать новый пароль для пользователя root?" 0 0
+
+case $? in
+	0)
+		echo -e "\e[1mВвод пароля root\e[0m"
+		passwd root
+	;;
+	
+	1)
+		dialog  --backtitle "Система портов Calmira Linux" --title " MESSAGE " --clear \
+			--msgbox "Пароль пользователя root не был изменён!" 0 0
+		exit 0
+	;;
+esac
+

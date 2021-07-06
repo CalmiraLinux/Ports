@@ -1,0 +1,18 @@
+#!/bin/bash
+# Build package pkg-config from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/pkg-config-0.29.2.tar.gz
+tar -xf pkg-config-0.29.2.tar.gz
+cd pkg-config-0.29.2
+
+./configure --prefix=/usr              \
+            --with-internal-glib       \
+            --disable-host-tool
+            
+make
+make install

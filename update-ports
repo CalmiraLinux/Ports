@@ -11,7 +11,7 @@ case $1 in
 		echo -e "\e[1mОбновление портов со стабильной ветки...\e[0m"
 		wget https://gitlab.com/Linuxoid85/calmira_ports/-/raw/main/ports-lx4_1.0.txz
 		tar -xf ports-lx4_1.0.txz
-		rm update-ports
+		rm {update-ports,CHANGELOG,README.md,LICENSE,ports-lx4_1.0.txz}
 	;;
 	
 	testing)

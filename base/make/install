@@ -1,0 +1,16 @@
+#!/bin/bash
+# Build package make from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/make-4.3.tar.gz
+tar -xf make-4.3.tar.gz
+cd make-4.3
+
+./configure --prefix=/usr
+
+make
+make install

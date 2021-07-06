@@ -1,0 +1,28 @@
+#!/bin/bash
+# Build package eudev (for SysVInit) from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/eudev-3.2.10.tar.gz https://github.com/Linux4Yourself/Linux4Yourself.Udev/releases/download/0.1/udev.tar.xz
+tar -xf eudev-3.2.10.tar.gz
+cd eudev-3.2.10
+
+./configure --prefix=/usr           \
+            --sysconfdir=/etc       \
+            --enable-manpages       \
+            --disable-static        \
+            --sbindir=/usr/bin 
+            
+make
+mkdir -pv /usr/lib/udev/rules.d
+mkdir -pv /etc/udev/rules.d
+make install
+
+mkdir udev
+cd udev
+tar -xvf ../../udev.tar.xz
+make install
+cd ..

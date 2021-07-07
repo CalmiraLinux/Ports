@@ -1,0 +1,23 @@
+#!/bin/bash
+# Build package cmake from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://cmake.org/files/v3.20/cmake-3.20.5.tar.gz
+tar -xf cmake-3.20.5.tar.gz
+cd cmake-3.20.5
+
+sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
+
+./bootstrap --prefix=/usr        \
+            --system-libs        \
+            --mandir=/share/man  \
+            --no-system-jsoncpp  \
+            --no-system-librhash \
+            --docdir=/share/doc/cmake-3.20.5 &&
+make
+make install

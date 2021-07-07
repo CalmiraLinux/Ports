@@ -26,6 +26,7 @@ echo "#!/bin/bash
 #
 # (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
 
+source /usr/share/ports/core-functions.sh
 cd /usr/src
 
 wget 

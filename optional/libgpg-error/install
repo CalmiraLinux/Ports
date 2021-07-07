@@ -1,0 +1,18 @@
+#!/bin/bash
+# Build package libgpg-error from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.42.tar.bz2
+tar -xf libgpg-error-1.42.tar.bz2
+cd libgpg-error-1.42
+
+./configure --prefix=/usr &&
+make
+
+make install &&
+install -v -m644 -D README /usr/share/doc/libgpg-error-1.42/README

@@ -1,0 +1,29 @@
+#!/bin/bash
+# Build package libassuan from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.5.tar.bz2
+tar -xf libassuan-2.5.5.tar.bz2
+cd libassuan-2.5.5
+
+./configure --prefix=/usr &&
+make                      &&
+
+make -C doc html                                                       &&
+makeinfo --html --no-split -o doc/assuan_nochunks.html doc/assuan.texi &&
+makeinfo --plaintext       -o doc/assuan.txt           doc/assuan.texi
+
+make install &&
+
+install -v -dm755   /usr/share/doc/libassuan-2.5.5/html &&
+install -v -m644 doc/assuan.html/* \
+                    /usr/share/doc/libassuan-2.5.5/html &&
+install -v -m644 doc/assuan_nochunks.html \
+                    /usr/share/doc/libassuan-2.5.5      &&
+install -v -m644 doc/assuan.{txt,texi} \
+                    /usr/share/doc/libassuan-2.5.5

@@ -1,0 +1,23 @@
+#!/bin/bash
+# Build package libusb from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://github.com/libusb/libusb/releases/download/v1.0.24/libusb-1.0.24.tar.bz2
+tar -xf libusb-1.0.24.tar.bz2
+cd libusb-1.0.24
+
+warn_dialog "Перед/после сборкой этого порта ОБЯЗАТЕЛЬНО пересоберите ядро Linux!
+
+Device Drivers --->
+ [*] USB support --->                   [CONFIG_USB_SUPPORT]
+  <*/M> Support for Host-side USB      [CONFIG_USB]
+   (Select any USB hardware device drivers you may need on the same page)"
+   
+./configure --prefix=/usr --disable-static &&
+make
+make install

@@ -1,0 +1,16 @@
+#!/bin/bash
+# Build package libarchive from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://github.com/libarchive/libarchive/releases/download/3.5.1/libarchive-3.5.1.tar.xz
+tar -xf libarchive-3.5.1.tar.xz
+cd libarchive-3.5.1
+
+./configure --prefix=/usr --disable-static &&
+make
+make install

@@ -1,0 +1,58 @@
+#!/bin/bash
+# Build package fuse from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://github.com/libfuse/libfuse/releases/download/fuse-3.10.4/fuse-3.10.4.tar.xz
+tar -xf fuse-3.10.4.tar.xz
+cd fuse-3.10.4
+
+warn_dialog "Перед/после сборки этого пакета ОБЯЗАТЕЛЬНО пересоберите ядро Linux с поддержкой этой файловой системы!
+
+File systems  --->
+ <*/M> FUSE (Filesystem in Userspace) support  [CONFIG_FUSE_FS]
+ <*/M>   Character device in Userspace support [CONFIG_CUSE]"
+ 
+sed -i '/^udev/,$ s/^/#/' util/meson.build &&
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr --buildtype=release .. &&
+ninja
+
+ninja install                                             &&
+
+chmod u+s /usr/bin/fusermount3                &&
+
+install -v -m755 -d /usr/share/doc/fuse-3.10.4      &&
+install -v -m644    ../doc/{README.NFS,kernel.txt} \
+                    /usr/share/doc/fuse-3.10.4      &&
+cp -Rv ../doc/html  /usr/share/doc/fuse-3.10.4
+
+function ask_ok() {
+	echo -e "\e[1mВыбрана настройка пакета...\e[0m"
+	cat > /etc/fuse.conf << "EOF"
+# Set the maximum number of FUSE mounts allowed to non-root users.
+# The default is 1000.
+#
+#mount_max = 1000
+
+# Allow non-root users to specify the 'allow_other' or 'allow_root'
+# mount options.
+#
+#user_allow_other
+EOF
+}
+
+function ask_no() {
+	echo -e "\e[1;31mНастройка пакета НЕ выбрана!\e[0m"
+	exit 0
+}
+ask_dialog "Настроить пакет fuse? Если вы собираете этот порт как обновление, то, ответив 'Да' текущие настройки будут затёрты, а вместо них будут восстановлены стандартные. Если вы не настраивали fuse, то ничего плохого не будет.
+
+Если вы устанавливаете пакет fuse впервые, то ОБЯЗАТЕЛЬНО ответьте 'Да'."

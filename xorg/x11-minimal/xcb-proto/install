@@ -1,0 +1,15 @@
+#!/bin/bash
+# Build package xcb-proto from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
+tar -xf xcb-proto-1.14.1.tar.xz
+cd xcb-proto-1.14.1
+
+PYTHON=python3 ./configure $XORG_CONFIG
+make install

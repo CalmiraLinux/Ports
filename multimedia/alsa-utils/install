@@ -1,0 +1,29 @@
+#!/bin/bash
+# Build package alsa-utils from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://www.alsa-project.org/files/pub/utils/alsa-utils-1.2.5.1.tar.bz2
+tar -xf alsa-utils-1.2.5.1.tar.bz2
+cd alsa-utils-1.2.5.1
+
+./configure --disable-alsaconf \
+            --disable-bat   \
+            --disable-xmlto \
+            --with-curses=ncursesw &&
+make
+make install
+
+alsactl -L store
+
+echo -e "\n\n\e[1;32mВведите имя пользователя, которого нужно добавить в группу 'audio' для корректной работы звука: "
+read $USER
+usermod -a -G audio $USER
+
+warn_msg "После сборки этого порта ОБЯЗАТЕЛЬНО перейдите в директорию порта bootscripts (cd /usr/ports/base/bootscripts) и выполните:
+
+make install-alsa"

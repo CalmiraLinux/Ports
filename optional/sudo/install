@@ -1,0 +1,39 @@
+#!/bin/bash
+# Build package sudo from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://www.sudo.ws/dist/sudo-1.9.7p1.tar.gz
+tar -xf sudo-1.9.7p1.tar.gz
+cd sudo-1.9.7p1
+
+./configure --prefix=/usr              \
+            --libexecdir=/usr/lib      \
+            --with-secure-path         \
+            --with-all-insults         \
+            --with-env-editor          \
+            --docdir=/usr/share/doc/sudo-1.9.7p1 \
+            --with-passprompt="Password: "
+            
+make
+make install &&
+ln -sfv libsudo_util.so.0.0.0 /usr/lib/sudo/libsudo_util.so.0
+
+ask_ok() {
+	cat > /etc/sudoers.d/sudo << "EOF"
+Defaults secure_path="/usr/bin:/bin:/usr/sbin:/sbin"
+%wheel ALL=(ALL) ALL
+EOF
+}
+
+ask_no() {
+	echo -e "\e[1;31mНастройка sudo НЕ выбрана.\e[0m"
+}
+
+ask_dialog "Настроить пакет sudo? Если вы собираете этот порт как обновление, то, ответив 'Да' текущие настройки будут затёрты, а вместо них будут восстановлены стандартные. Если вы не настраивали sudo, то ничего плохого не будет.
+
+Если вы устанавливаете пакет sudo впервые, то ОБЯЗАТЕЛЬНО ответьте 'Да'."

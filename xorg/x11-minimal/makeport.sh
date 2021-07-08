@@ -33,5 +33,8 @@ wget
 tar -xf 
 cd 
 " > install
+echo "Создание порта..."
 vim install
+echo "Запись информации о пакете..."
+vim info
 cd ../

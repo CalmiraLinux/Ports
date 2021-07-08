@@ -33,5 +33,5 @@ wget
 tar -xf 
 cd 
 " > install
-gedit install
+vim install
 cd ../

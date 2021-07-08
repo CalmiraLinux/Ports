@@ -1,0 +1,26 @@
+#!/bin/bash
+# Build package lynx from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
+tar -xf lynx2.8.9rel.1.tar.bz2
+cd lynx2.8.9rel.1
+
+./configure --prefix=/usr          \
+            --sysconfdir=/etc/lynx \
+            --datadir=/usr/share/doc/lynx-2.8.9rel.1 \
+            --with-zlib            \
+            --with-bzlib           \
+            --with-ssl             \
+            --with-screen=ncursesw \
+            --enable-locale-charset &&
+make
+make install-full &&
+chgrp -v -R root /usr/share/doc/lynx-2.8.9rel.1/lynx_doc
+sed -e '/#LOCALE/     a LOCALE_CHARSET:TRUE'     \
+    -i /etc/lynx/lynx.cfg

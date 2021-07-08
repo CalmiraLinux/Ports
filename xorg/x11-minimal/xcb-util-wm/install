@@ -1,0 +1,16 @@
+#!/bin/bash
+# Build package xcb-util-wm from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2
+tar -xf xcb-util-wm-0.4.1.tar.bz2
+cd xcb-util-wm-0.4.1
+
+./configure $XORG_CONFIG &&
+make
+make install

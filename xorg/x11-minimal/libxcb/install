@@ -1,0 +1,18 @@
+#!/bin/bash
+# Build package libxcb from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/share/ports/core-functions.sh
+cd /usr/src
+
+wget https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.14.tar.xz
+tar -xf libxcb-1.14.tar.xz
+cd libxcb-1.14
+
+CFLAGS="${CFLAGS:--O2 -g} -Wno-error=format-extra-args" ./configure $XORG_CONFIG      \
+            --without-doxygen \
+            --docdir='${datadir}'/doc/libxcb-1.14 &&
+make
+make install

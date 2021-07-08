@@ -34,7 +34,11 @@ tar -xf
 cd 
 " > install
 echo "Создание порта..."
-vim install
+gedit install
 echo "Запись информации о пакете..."
 vim info
 cd ../
+
+git add .
+git commit -m "Добавление порта с пакетом $1"
+git push

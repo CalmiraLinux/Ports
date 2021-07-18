@@ -7,7 +7,7 @@
 cd /usr/src
 
 wget https://lx4u.ru/downloads/packages/iproute2-5.13.0.tar.xz
-tar -xf iproute2-5.13.0.tar.xz
+tar -xvf iproute2-5.13.0.tar.xz
 cd iproute2-5.13.0
 
 sed -i /ARPD/d Makefile

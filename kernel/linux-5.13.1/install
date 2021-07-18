@@ -1,0 +1,51 @@
+#!/bin/bash
+# Build package linux-5.13.1 from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget https://lx4u.ru/downloads/packages/linux-5.13.1.tar.xz
+tar -xf linux-5.13.1.tar.xz
+cd linux-5.13.1
+
+make mrproper
+make mrproper
+dialog  --backtitle "Система портов Calmira" --title " ASK " \
+	--yesno "Вы желаете собрать ядро базовой конфигурации с учётом характеристик и особенностей вашего ПК? Ответьте 'Да'.
+
+Если вы желаете настроить ядро самостоятельно (в псевдографическом menuconfig), то ответьте 'Нет'.
+
+О настройке ядра читайте здесь: https://lx4u.ru/rel/1.2/#/kernel/kernel-setup" 0 0
+
+case $? in
+	0)
+		echo -e "\e[1mЯдро собирается с настройками по умолчанию с учётом архитектуры машины. Параметры берутся из архитектурно-зависимых defconfig файлов."
+		make defconfig
+	;;
+	
+	1)
+		echo -e "\e[1mВыбрана самостоятельная настройка ядра\e[0m"
+		make menuconfig
+	;;
+esac
+
+make
+make modules_install
+
+cp -iv arch/x86/boot/bzImage /boot/vmlinuz-5.13.1-calm-kernel
+cp -iv System.map /boot/System.map-5.13.1
+cp -iv .config /boot/config-5.13.1
+if [ -f "/boot/vmlinuz" ]; then
+	rm -v /boot/vmlinuz
+fi
+ln -svf vmlinuz-5.13.1-calm-kernel /boot/vmlinuz
+
+install -v -m755 -d /etc/modprobe.d
+cat > /etc/modprobe.d/usb.conf << "EOF"
+# Begin /etc/modprobe.d/usb.conf
+install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true
+install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
+# End /etc/modprobe.d/usb.conf
+EOF

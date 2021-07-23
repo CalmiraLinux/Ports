@@ -5,6 +5,10 @@
 
 if [ -d $1 ]; then
 	touch $1/config.sh
+elif [ $1 = "Package" ]; then
+	echo "Вы остановились на пакете:"
+	cat .conf
+	exit 0
 else
 	echo "ОШИБКА: пакета $1 не существует."
 	exit 1
@@ -17,3 +21,7 @@ SITE=
 MAINTAINER=Linuxoid85
 PRIORITY=system" > $1/config.sh
 vim $1/config.sh
+
+if [ $1 != "Package" ]; then
+	echo "$1" > .conf
+fi

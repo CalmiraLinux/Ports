@@ -4,14 +4,26 @@
 # (C) 2021 Linuxoid85 <linuxoid85@gmail.com>
 #
 
+source /etc/cpkg/system.version
+
+PORT_ARCHIVE="/usr/ports/cache/ports-stable.txz"
+PORT_UNSTABLE_ARCHIVE="/usr/ports/cache/ports-unstable.txz"
+NAME_PORT="ports-lx4_$DISTRIB_VER.txz"
+
 cd /usr/ports
 
 case $1 in
 	stable)
 		echo -e "\e[1mОбновление портов со стабильной ветки...\e[0m"
-		wget https://gitlab.com/Linuxoid85/calmira_ports/-/raw/main/ports-lx4_1.0.txz
-		tar -xf ports-lx4_1.0.txz
-		rm {update-ports,CHANGELOG,README.md,LICENSE,ports-lx4_1.0.txz}
+		if [ -f "$PORT_ARCHIVE" ]; then
+			rm -rv $PORT_ARCHIVE
+		fi
+		
+		wget https://gitlab.com/Linuxoid85/calmira_ports/-/raw/main/$NAME_PORT -o $PORT_ARCHIVE
+		cd /usr/ports
+		
+		tar -xvf $PORT_ARCHIVE
+		rm -fv {update-ports,CHANGELOG,README.md,LICENSE,ports-lx4_1.0.txz}
 	;;
 	
 	testing)

@@ -10,9 +10,13 @@ wget https://lx4u.ru/downloads/packages/attr-2.5.1.tar.gz
 tar -xf attr-2.5.1.tar.gz
 cd attr-2.5.1
 
-./configure --prefix=/usr    \
-            --disable-static \
+./configure --prefix=/usr     \
+            --bindir=/bin     \
+            --disable-static  \
             --sysconfdir=/etc
-            
+
 make
 make install
+
+mv -v /usr/lib/libattr.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so

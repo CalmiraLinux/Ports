@@ -28,15 +28,19 @@ make install
 rm -rvf /usr/lib/gcc/$(gcc -dumpmachine)/11.1.0/include-fixed/bits/
 chown -v -R root:root \
     /usr/lib/gcc/*linux-gnu/11.1.0/include{,-fixed}
-ln -svr /usr/bin/cpp /usr/lib
+
+ln -sv ../usr/bin/cpp /lib
+install -v -dm755 /usr/lib/bfd-plugins
 ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/11.1.0/liblto_plugin.so \
         /usr/lib/bfd-plugins/
+
 mkdir -pv /usr/share/gdb/auto-load/usr/lib{,32}
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib
 mv -v /usr/lib32/*gdb.py /usr/share/gdb/auto-load/usr/lib32
 
 clear
-echo -e "\e[1;32mТестирование работоспособности...\e[0m"
+echo -e "\e[1;32mТестирование работоспособности...\e[0m
+ВНИМАНИЕ: используется замедление 0.5 сек."
 echo 'int main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
 sleep 0.5

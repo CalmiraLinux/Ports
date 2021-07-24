@@ -8,7 +8,7 @@ cd /usr/src
 
 wget https://lx4u.ru/downloads/packages/procps-ng-3.3.17.tar.xz
 tar -xf procps-ng-3.3.17.tar.xz
-cd procps-ng-3.3.17
+cd procps-3.3.17
 
 ./configure --prefix=/usr                            \
             --disable-static                         \

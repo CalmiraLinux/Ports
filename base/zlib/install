@@ -10,3 +10,6 @@ cd zlib-ng-2.0.3
 make
 make install
 rm -fv /usr/lib/libz.a
+
+mv -v /usr/lib/libz.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so

@@ -6,8 +6,10 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/bootscripts.tar.xz
-tar -xf bootscripts.tar.xz
+wget https://github.com/Linux4Yourself/bootscripts/releases/download/1.1/bootscripts.tar.xz
+
+echo -e "\e[1mДанная версия пакета \e[0m\e[35mbootscripts\e[0m\e[1m оптимизирована для работы в системе с раздельной системой каталогов\e[0m"
+tar -xvf bootscripts.tar.xz
 cd bootscripts
 
 make install

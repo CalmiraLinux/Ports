@@ -10,6 +10,6 @@ wget https://lx4u.ru/downloads/packages/grep-3.6.tar.xz
 tar -xf grep-3.6.tar.xz
 cd grep-3.6
 
-./configure --prefix=/usr
+./configure --prefix=/usr --bindir=/bin
 make
 make install

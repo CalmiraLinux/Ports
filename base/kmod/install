@@ -12,6 +12,8 @@ cd kmod-29
 
 ./configure --prefix=/usr          \
             --sysconfdir=/etc      \
+	    --bindir=/bin          \
+	    --with-rootlibdir=/lib \
             --with-xz              \
             --with-zstd            \
             --with-zlib
@@ -20,5 +22,7 @@ make
 make install
 
 for target in depmod insmod lsmod modinfo modprobe rmmod; do
-  ln -sfv kmod /usr/bin/$target
+  ln -sfv ../bin/kmod /sbin/$target
 done
+
+ln -sfv kmod /bin/lsmod

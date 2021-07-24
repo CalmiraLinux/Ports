@@ -18,6 +18,8 @@ sed -i  '/^bashline.o:.*shmbchar.h/a bashline.o: ${DEFDIR}/builtext.h' Makefile.
 make
 make install
 
+mv -vf /usr/bin/bash /bin
+
 sleep 1
 dialog  --backtitle "Система портов Calmira Linux" --title " ASK " \
 	--yesno "Если интерпретатор скомпилирован успешно, вам советуется запустить новую сессию bash с ним. Запустить?" 0 0

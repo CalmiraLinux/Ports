@@ -14,7 +14,7 @@ sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
 sed -i 's/union wait/int/' syslogd.c
 
 make
-make BINDIR=/usr/bin install
+make BINDIR=/sbin install
 
 dialog  --backtitle "Система сборки Calmira Linux" --title " ASK " \
 	--yesno "Выполнить настройку пакета? Если вы обновляете его до новой версии, переустанавливаете или вы уже создали/отредактировани нужные/уже существующие конфиги для sysklogd, то ответьте 'Нет', дабы не потерять свои настройки.

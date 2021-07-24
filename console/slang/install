@@ -1,0 +1,22 @@
+#!/bin/bash
+# Build package slang from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+cd /usr/src
+
+wget http://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2
+tar -xf slang-2.3.2.tar.bz2
+cd slang-2.3.2
+
+./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --with-readline=gnu &&
+make -j1
+make install_doc_dir=/usr/share/doc/slang-2.3.2   \
+     SLSH_DOC_DIR=/usr/share/doc/slang-2.3.2/slsh \
+     install-all &&
+
+chmod -v 755 /usr/lib/libslang.so.2.3.2 \
+             /usr/lib/slang/v2/modules/*.so

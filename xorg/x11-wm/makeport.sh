@@ -4,8 +4,9 @@
 #
 
 ## Использование:
-# makeport $PACKAGE
+# makeport $PACKAGE $AUTHOR
 # $PACKAGE - имя пакета
+# $AUTHOR - автор порта
 
 if [ -z $1 ]; then
 	if [ -z $DESKTOP ]; then
@@ -13,20 +14,35 @@ if [ -z $1 ]; then
 	else
 		yad --title="Ошибка" --text="Не введено имя программы"
 	fi
-	exit 0
+	exit 1
+fi
+
+if [ -z $EDITOR ]; then
+	if [ -f "/usr/bin/vim" ]; then
+		export $EDITOR="/usr/bin/vim"
+	else
+		echo -e "\e[1;31mНе установлена переменная \$EDITOR, не установлен текстовый редактор vim! \e[0m"
+		exit 1
+	fi
+fi
+
+if [ -z $2 ]; then
+	export AUTHOR="Uknown author"
+else
+	export AUTHOR="$2"
 fi
 
 mkdir $1
 cd $1
-touch install
-chmod +x install
+touch {install,config.sh}
+chmod +x *
 echo "#!/bin/bash
 # Build package $1 from port
-# Port created by Linuxoid85
+# Port created by $AUTHOR
 #
 # (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
 
-source /usr/share/ports/core-functions.sh
+source /usr/lib/cpkg/other-functions.sh
 cd /usr/src
 
 wget 
@@ -34,11 +50,10 @@ tar -xf
 cd 
 " > install
 echo "Создание порта..."
-gedit install
+$EDITOR install
 echo "Запись информации о пакете..."
-vim info
-cd ../
+$EDITOR config.sh
+cd ..
 
-git add .
-git commit -m "Добавление порта с пакетом $1"
-git push
+unset AUTHOR
+exit 0

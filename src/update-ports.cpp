@@ -50,11 +50,11 @@ int port_download(char* address) {
     FILE *fp;
     CURLcode res;
     char *url = address;
-    char outfilename[FILENAME_MAX] = "ports.txz";
+    char outfilename[FILENAME_MAX] = "/var/cache/cpkg/ports.txz";
     curl = curl_easy_init();
     
-    if(fileExists("ports.txz")) {
-    	port_remove("ports.txz");
+    if(fileExists("/var/cache/cpkg/ports.txz")) {
+    	port_remove("/var/cache/cpkg/ports.txz");
     }
     
     if (!curl) {
@@ -71,13 +71,31 @@ int port_download(char* address) {
         fclose(fp);
     }
     
-    if(!fileExists("ports.txz")) {
+    if(!fileExists("/var/cache/cpkg/ports.txz")) {
     	cout << "Файл 'ports.txz' не был скачан!\n";
     	exit(1);
     } else {
     	cout << "Файл 'ports.txz' скачан.\n";
     }
     return 0;
+}
+
+/* Скачивание порта */
+int get_ports(char* tree) {
+	if(fileExists("/var/cache/cpkg/ports.txz")) {
+		cout << "Найден архив с портами. Удаление...\n";
+		port_remove("/var/cache/cpkg/ports.txz");
+	}
+	
+	if(tree = "main") {
+		port_download("https://gitlab.com/Linuxoid85/calmira_ports/-/raw/main/ports-lx4_1.1.txz");
+	} else if(tree = "testing") {
+		port_download("https://gitlab.com/Linuxoid85/calmira_ports/-/raw/testing/ports-lx4_1.1.txz");
+	} else {
+		cout << "ОШИБКА: ветки " << tree << " не существует!\n";
+		exit (1);
+	}
+	return 0;
 }
 
 /* Распаковка */
@@ -102,7 +120,7 @@ static int copy_data(struct archive *ar, struct archive *aw)
   }
 }
 
-static void extract(const char *filename)
+static void extract_ports(const char *filename)
 {
   struct archive *a;
   struct archive *ext;
@@ -155,41 +173,32 @@ static void extract(const char *filename)
   exit(0);
 }
 
-/* Скачивание порта */
-int get_ports(char* tree) {
-	if(fileExists("ports.txz")) {
-		cout << "Найден архив с портами. Удаление...\n";
-		port_remove("ports.txz");
+/* Работа с установкой портов */
+void install_port(char* tree) {
+	get_ports(tree);                        /* Получение порта */
+	extract_ports("/var/cache/cpkg/ports.txz");   /* Распаковка порта */
+	
+	/* Проверка на наличие предыдущей версии СП */
+	if(fileExists("/usr/ports")) {
+		cout << "Предыдущая версия Системы портов установлена. Архивирование...\n";
+		port_rename("/usr/ports", "/usr/ports.old");
 	}
 	
-	if(tree = "main") {
-		port_download("https://gitlab.com/Linuxoid85/calmira_ports/-/raw/main/ports-lx4_1.1.txz");
-	} else if(tree = "testing") {
-		port_download("https://gitlab.com/Linuxoid85/calmira_ports/-/raw/testing/ports-lx4_1.1.txz");
+	/* Перенос новой версии СП */
+	if(fileExists("/var/cache/cpkg/ports")) {
+		cout << "Обновление системы портов...\n";
+		port_rename("/var/cache/cpkg/ports", "/usr/ports");
 	} else {
-		cout << "ОШИБКА: ветки " << tree << " не существует!\n";
-		exit (1);
-	}
-	return 0;
+		cout << "ОШИБКА: Система портов не была распакована, либо была удалена во время распаковки. Аварийное завершение работы.\n";
+		exit(1);
+	}	
 }
 
 int main(int argc, char* argv[]) {
-	SWITCH(argv[1]) {
-		CASE("rename"):
-			port_rename(argv[2], argv[3]);
-			break;
-		CASE("remove"):
-			port_remove(argv[2]);
-			break;
-		CASE("download"):
-			port_download(argv[2]);
-			break;
-		CASE("unpack"):
-			extract(argv[2]);
-			break;
-		DEFAULT:
-			cout << "Ошибка ввода!\n";
-			exit(1);
+	if(argc != 2) {
+		cout << "Введите имя ветки!\n";
+		exit(1);
 	}
+	install_port(argv[1]);
 	return 0;
 }

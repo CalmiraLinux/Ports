@@ -16,12 +16,14 @@ void dbg_msg(string message) {
 
 /* Проверка на существование файла */
 bool fileExists(const std::string& file) {
+	dbg_msg("Проверка на существование файла...");
     struct stat buf;
     return (stat(file.c_str(), &buf) == 0);
 }
 
 /* Функция для удаления файлов/директорий */
 int port_remove(const char* file) {
+	dbg_msg("Удаление файла...");
 	if(remove(file) != 0) {
 		cout << "Ошибка удаления файла!\n";
 		exit(1);
@@ -33,6 +35,7 @@ int port_remove(const char* file) {
 
 /* Функция для переименования файлов */
 int port_rename(const char* oldfile, const char * newfile) {
+	dbg_msg("Переименование файла...");
 	if(rename(oldfile, newfile) != 0) {
 		cout << "Ошибка переименования файла!\n";
 		exit(1);
@@ -51,6 +54,7 @@ size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream) {
 
 /* Функция для скачивания файлов по http */
 int port_download(char* address) {
+	dbg_msg("Скачивание файла...");
     CURL *curl;
     FILE *fp;
     CURLcode res;
@@ -58,6 +62,7 @@ int port_download(char* address) {
     char outfilename[FILENAME_MAX] = "/var/cache/cpkg/ports.txz";
     curl = curl_easy_init();
     
+    dbg_msg("Проверка на существование файла 1 (port_download)...");
     if(fileExists("/var/cache/cpkg/ports.txz")) {
     	port_remove("/var/cache/cpkg/ports.txz");
     }
@@ -76,6 +81,7 @@ int port_download(char* address) {
         fclose(fp);
     }
     
+    dbg_msg("Проверка на существование файла 2 (port_download)...");
     if(!fileExists("/var/cache/cpkg/ports.txz")) {
     	cout << "Файл 'ports.txz' не был скачан!\n";
     	exit(1);
@@ -87,6 +93,7 @@ int port_download(char* address) {
 
 /* Скачивание порта */
 int get_ports(char* tree) {
+	dbg_msg("Вызов функции get_ports");
 	if(fileExists("/var/cache/cpkg/ports.txz")) {
 		cout << "Найден архив с портами. Удаление...\n";
 		port_remove("/var/cache/cpkg/ports.txz");
@@ -104,8 +111,7 @@ int get_ports(char* tree) {
 }
 
 /* Распаковка */
-static int copy_data(struct archive *ar, struct archive *aw)
-{
+static int copy_data(struct archive *ar, struct archive *aw) {
   int r;
   const void *buff;
   size_t size;
@@ -125,8 +131,8 @@ static int copy_data(struct archive *ar, struct archive *aw)
   }
 }
 
-static void extract_ports(const char *filename)
-{
+static void extract_ports(const char *filename) {
+		dbg_msg("Распаковка архива...");
   struct archive *a;
   struct archive *ext;
   struct archive_entry *entry;
@@ -180,6 +186,7 @@ static void extract_ports(const char *filename)
 
 /* Работа с установкой портов */
 void install_port(char* tree) {
+	dbg_msg("Вызов install_port()");
 	get_ports(tree);                        /* Получение порта */
 	extract_ports("/var/cache/cpkg/ports.txz");   /* Распаковка порта */
 	

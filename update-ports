@@ -41,9 +41,9 @@ case $1 in
 			rm -rf ports
 		fi
 		
-		wget https://gitlab.com/Linuxoid85/calmira_ports/-/raw/main/ports-lx4_1.0.txz
+		wget https://gitlab.com/Linuxoid85/calmira_ports/-/raw/main/ports-lx4_1.1.txz
 		if [ -f "ports-lx4_1.0.txz" ]; then
-			tar -xf ports-lx4_1.0.txz
+			tar -xf ports-lx4_1.1.txz
 		else
 			echo -e "\e[1m$ERROR $UNPACK_FAIL1 $DOWNLOAD_PKG_FAIL\e[0m"
 			log_msg "Error downloading ports package!" "EMERG" "/var/log/port_system.log"

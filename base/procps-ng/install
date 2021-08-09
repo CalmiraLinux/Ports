@@ -12,8 +12,8 @@ cd procps-3.3.17
 
 ./configure --prefix=/usr                            \
             --disable-static                         \
-	    --exec-prefix=                           \
-	    --libdir=/usr/lib                        \
+	        --exec-prefix=                           \
+	        --libdir=/usr/lib                        \
             --disable-kill
             
 make

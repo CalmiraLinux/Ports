@@ -6,44 +6,8 @@
 #include <sys/stat.h>
 #include <archive.h>
 #include <archive_entry.h>
-#include "str_switch.h"
+#include "file-functions.h"
 using namespace std;
-
-/* DEBUG MESSAGE */
-void dbg_msg(string message) {
-	cout << "DEBUG: " << message << endl;
-}
-
-/* Проверка на существование файла */
-bool fileExists(const std::string& file) {
-	dbg_msg("Проверка на существование файла...");
-    struct stat buf;
-    return (stat(file.c_str(), &buf) == 0);
-}
-
-/* Функция для удаления файлов/директорий */
-int port_remove(const char* file) {
-	dbg_msg("Удаление файла...");
-	if(remove(file) != 0) {
-		cout << "Ошибка удаления файла!\n";
-		exit(1);
-	} else {
-		cout << "Файл " << file << " удалён упешно.\n";
-	}
-	return 0;
-}
-
-/* Функция для переименования файлов */
-int port_rename(const char* oldfile, const char * newfile) {
-	dbg_msg("Переименование файла...");
-	if(rename(oldfile, newfile) != 0) {
-		cout << "Ошибка переименования файла!\n";
-		exit(1);
-	} else {
-		cout << "Файл " << oldfile << " переименован успешно в " << newfile << endl;
-	}
-	return 0;
-}
 
 /*             */
 

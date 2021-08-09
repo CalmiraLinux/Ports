@@ -9,6 +9,11 @@
 #include "str_switch.h"
 using namespace std;
 
+/* DEBUG MESSAGE */
+void dbg_msg(string message) {
+	cout << "DEBUG: " << message << endl;
+}
+
 /* Проверка на существование файла */
 bool fileExists(const std::string& file) {
     struct stat buf;

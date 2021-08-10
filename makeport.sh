@@ -9,7 +9,7 @@
 # $AUTHOR - автор порта
 
 if [ -z $1 ]; then
-	if [ -z $DESKTOP ]; then
+	if [ -z $DISPLAY ]; then
 		echo -e "\e[1;31mНе введено имя программы\e[0m"
 	else
 		yad --title="Ошибка" --text="Не введено имя программы"
@@ -36,6 +36,7 @@ mkdir $1
 cd $1
 touch {install,config.sh}
 chmod +x *
+echo "Открывается файл 'install'"
 echo "#!/bin/bash
 # Build package $1 from port
 # Port created by $AUTHOR

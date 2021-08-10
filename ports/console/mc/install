@@ -6,9 +6,9 @@
 
 cd /usr/src
 
-wget http://ftp.midnight-commander.org/mc-4.8.25.tar.xz
-tar -xf mc-4.8.25.tar.xz
-cd mc-4.8.25
+wget http://ftp.midnight-commander.org/mc-4.8.26.tar.xz
+tar -xf mc-4.8.26.tar.xz
+cd mc-4.8.26
 
 ./configure --prefix=/usr \
             --sysconfdir=/etc \

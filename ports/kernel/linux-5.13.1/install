@@ -11,7 +11,6 @@ tar -xf linux-5.13.1.tar.xz
 cd linux-5.13.1
 
 make mrproper
-make mrproper
 dialog  --backtitle "Система портов Calmira" --title " ASK " \
 	--yesno "Вы желаете собрать ядро базовой конфигурации с учётом характеристик и особенностей вашего ПК? Ответьте 'Да'.
 
@@ -31,6 +30,7 @@ case $? in
 	;;
 esac
 
+echo -e "\e[1mСборка ядра может занять много времени в зависимости от выбранной Вами конфигурации. Просто ждите.\e[0m"
 make
 make modules_install
 

@@ -1,12 +1,10 @@
-# ChangeLog
+# Change Log
 
-# 18.07.2021
-**Обновления пакетов**:
+Список изменений в системе портов Calmira GNU/Linux. Сформировано на основе `git log`.
 
-* `iproute2-5.13`;
-* `linux-5.13.1`;
-* `texinfo-6.8`;
-* `less-590`.
+## Calmira LX4 1.1 (2021.5): ветка Stable
 
-# Calmira Ports LX4 1.0 (06.07.2021)
-* Initial release
+## Calmira LX4 1.2 (2022.1): ветка Testing
+* 10.08.2021
+	* Обновление пакета mc-4.8.25 до версии 4.8.26;
+	* Фикс пакета tcsh-6.22.03

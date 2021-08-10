@@ -11,7 +11,7 @@ wget ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.03.tar.gz
 tar -xf tcsh-6.22.03.tar.gz
 cd tcsh-6.22.03
 
-./configure --prefix=/usr --bindir=/bin &&
+./configure --prefix=/usr --bindir=/bin
 
 make &&
 sh ./tcsh.man2html
@@ -25,7 +25,18 @@ install -v -m755 -d          /usr/share/doc/tcsh-6.22.03/html &&
 install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.22.03/html &&
 install -v -m644 FAQ         /usr/share/doc/tcsh-6.22.03
 
+if grep 'tcsh' /etc/shells; then
+	echo "OK"
+else
 cat >> /etc/shells << "EOF"
 /bin/tcsh
+EOF
+fi
+
+if grep 'csh' /etc/shells; then
+	echo "OK"
+else
+cat >> /etc/shells << "EOF"
 /bin/csh
 EOF
+fi

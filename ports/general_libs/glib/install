@@ -6,11 +6,17 @@
 
 cd /usr/src
 
-wget http://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.4.tar.xz
-tar -xf glib-2.64.4.tar.xz
-cd glib-2.64.4
+wget http://ftp.gnome.org/pub/gnome/sources/glib/2.66/glib-2.66.7.tar.xz http://www.linuxfromscratch.org/patches/blfs/10.1/glib-2.66.7-skip_warnings-1.patch
+tar -xf glib-2.66.7.tar.xz
+cd glib-2.66.7
 
-patch -Np1 -i ../glib-2.64.4-skip_warnings-1.patch
+patch -Np1 -i ../glib-2.66.7-skip_warnings-1.patch
+
+if [ -e /usr/include/glib-2.0 ]; then
+    rm -rvf /usr/include/glib-2.0.old &&
+    mv -vf  /usr/include/glib-2.0{,.old}
+fi
+
 mkdir build &&
 cd    build &&
 
@@ -22,5 +28,7 @@ ninja
 
 ninja install &&
 
-mkdir -p /usr/share/doc/glib-2.64.4 &&
-cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.64.4
+mkdir -p /usr/share/doc/glib-2.66.7 &&
+cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.66.7
+
+rm -f /usr/include/glib-2.0/glib/gurifuncs.h

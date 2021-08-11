@@ -1,0 +1,40 @@
+#!/bin/bash
+# Build package dhcpcd from port
+# Port created by Uknown author
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="9.1.4" # Version of dhcpcd
+
+wget https://roy.marples.name/downloads/dhcpcd/dhcpcd-$VERSION.tar.xz
+tar -xf dhcpcd-$VERSION.tar.xz
+cd dhcpcd-$VERSION
+
+install  -v -m700 -d /var/lib/dhcpcd &&
+
+groupadd -g 52 dhcpcd        &&
+useradd  -c 'dhcpcd PrivSep' \
+         -d /var/lib/dhcpcd  \
+         -g dhcpcd           \
+         -s /bin/false     \
+         -u 52 dhcpcd &&
+chown    -v dhcpcd:dhcpcd /var/lib/dhcpcd
+
+./configure --libexecdir=/lib/dhcpcd \
+            --dbdir=/var/lib/dhcpcd  \
+            --privsepuser=dhcpcd
+make
+
+make install
+
+echo -e "\e[1mAdding 'dhcpcd-$VERSION' in cpkg database...\e[0m"
+package_add_port_db
+
+print_ps_msg "WARNING" "Для настройки dhcpcd вы должны установить сервис '/lib/services/dhcpcd' из calm-bootscripts. Об установке 'calm-bootscripts' читайте в файле 'setup.html' из директории с этим портом."
+
+print_ps_msg "NOTE" "The default for dhcpcd is to set the hostname and mtu. It also overwrites /etc/resolv.conf and /etc/ntp.conf. These modifications to system files are done by hooks which are stored in /lib/dhcpcd/dhcpcd-hooks. Setup dhcpcd by removing or adding hooks from/to that directory. The execution of hooks can be disabled by using the --nohook (-C) command line option or by the nohook option in the /etc/dhcpcd.conf file."
+
+print_ps_msg "NOTE" "Вы должны САМИ настроить/создать конфигурационные файлы '/etc/sysconfig/ifconfig.eth0' и '/etc/resolv.conf{,.head}' для правильной работы dhcpcd-$VERSION. О настройке смотрите в файле 'setup.html' из директории с этим портом."

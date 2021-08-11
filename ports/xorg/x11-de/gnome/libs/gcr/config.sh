@@ -1,0 +1,9 @@
+NAME=gcr
+VERSION=3.36.0
+PRIORITY="user"
+MAINTAINER="Linuxoid85 <linuxoid85@gmail.com>"
+DESCRIPTION="The Gcr package contains libraries used for displaying certificates and accessing key stores. It also provides the viewer for crypto files on the GNOME Desktop."
+REQ_DEPS="GLib-2.64.4 libgcrypt-1.8.6 p11-kit-0.23.20"
+RECOM_DEPS="GnuPG-2.2.21 gobject-introspection-1.64.1 gtk+-3.24.22 libxlst-1.1.34 vala-0.48.9"
+OPT_DEPS="gtk-doc-1.32 valgrind-3.16.1"
+FILES="$(which gcr-viewer) /usr/lib/{libgck-1,libgcr-3,libgcr-base-3,libgcr-ui-3}.so /usr/include/gck-1 /usr/include/gcr-3 /usr/share/gtk-doc/html/{gcr,gck}"

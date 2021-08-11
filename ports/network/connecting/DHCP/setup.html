@@ -70,6 +70,14 @@ dhclient &lt;eth0&gt;
 
 <p>If you want to configure network interfaces at boot using dhclient, you need to install the <tt>/lib/services/dhclient</tt> script included in the <a href="https://github.com/CalmiraLinux/calm-bootscripts">calm-bootscripts</a> package. For installation, see the Calmira documentation page (internet) or <a href="/usr/share/doc/Calmira/setup/bootscripts.html">local documentation</a>.</p>
 
+<table border="1" width="100%" cellpadding="5"><colgroup>
+	<col style="background-color:#eeddcc">
+</colgroup>
+<tr><td>
+<pre>
+make install-service-dhclient
+</pre></td></tr></table>
+
 <p>Next, create the <tt>/etc/sysconfig/ifconfig.eth0</tt> configuration file with the following commands as the <tt>root</tt> user:</p>
 
 <table border="1" width="100%" cellpadding="5"><colgroup>
@@ -145,6 +153,14 @@ install -v -dm 755 /var/lib/dhcpd
 </pre></td></tr></table>
 
 <p>If you want to start the DHCP Server at boot, install the <tt>/etc/rc.d/init.d/dhcpd</tt> init script included in the <a href="https://github.com/CalmiraLinux/calm-bootscripts">calm-bootscripts</a> package. For installation, see the Calmira documentation page (internet) or <a href="/usr/share/doc/Calmira/setup/bootscripts.html">local documentation</a>.</p>
+
+<table border="1" width="100%" cellpadding="5"><colgroup>
+	<col style="background-color:#eeddcc">
+</colgroup>
+<tr><td>
+<pre>
+make install-service-dhcpcd
+</pre></td></tr></table>
 
 <p>You will need to edit the <tt>/etc/sysconfig/dhcpd</tt> in order to set the interface on which <b><tt>dhcpd</tt></b> will serve the DHCP requests.</p>
 

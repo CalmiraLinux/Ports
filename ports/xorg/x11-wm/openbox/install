@@ -1,0 +1,40 @@
+#!/bin/bash
+# Build package openbox from port
+# Port created by Uknown author
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="3.6.1"
+
+wget http://openbox.org/dist/openbox/openbox-$VERSION.tar.gz
+tar -xf openbox-$VERSION.tar.gz
+cd openbox-$VERSION
+
+export LIBRARY_PATH=$XORG_PREFIX/lib
+
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --disable-static  \
+            --docdir=/usr/share/doc/openbox-3.6.1 &&
+make
+
+make install
+
+cp -rf /etc/xdg/openbox ~/.config
+
+dialog --backtitle "Система портов Calmira GNU/Linux" --title " ASK " --yesno "Прописать запуск openbox-$VERSION в файл '~/.xinitrc'? Тогда его содержимое будет затёрто и на его место будет записан запуск WM" 0 0
+
+case $? in
+	1)
+		echo "Прервано"
+	;;
+
+	0)
+		echo "Запись запуска IceWM-$VERSION в '~/.xinitrc'."
+		echo openbox > ~/.xinitrc
+
+	;;
+esac

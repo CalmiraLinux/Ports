@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+	<title>Configuring gpm</title>
+</head>
+<link rel="stylesheet" href="/usr/share/update-ports/css/styles.css">
+<body style="margin: 0px 150px 0px 150px">
+
+<h1>Configuring gpm</h1><hr>
+
+<h2>Boot script</h2>
+
+<p>Install the <tt>/etc/rc.d/init.d/gpm</tt> init script included in the <a href="https://github.com/CalmiraLinux/calm-bootscripts">calm-bootscripts</a> package. For installation this scripts, see the Calmira documentation page (internet) or <a href="/usr/share/doc/Calmira/setup/bootscripts.html">local documentation</a>.</p>
+
+<table border="1" width="100%" cellpadding="5"><colgroup>
+	<col style="background-color:#eeddcc">
+</colgroup>
+<tr><td>
+<pre>
+make install-gpm
+</pre></td></tr></table>
+
+<h2>Config files</h2>
+
+<p><tt>/etc/gpm-root.conf</tt> and <tt>~/.gpm-root</tt>: the default and individual user <b><tt>gpm-root</tt></b> configuration files.</p>
+
+<p><tt>/etc/sysconfig/mouse</tt>: this file contains the name of your mouse device and the protocol it uses. To create this file, run the following as the <tt>root</tt> user:</p>
+
+<table border="1" width="100%" cellpadding="5"><colgroup>
+	<col style="background-color:#eeddcc">
+</colgroup>
+<tr><td>
+<pre>
+cat > /etc/sysconfig/mouse << "EOF"
+# Begin /etc/sysconfig/mouse
+
+MDEVICE="&lt;yourdevice&gt;"
+PROTOCOL="&lt;yourprotocol&gt;"
+GPMOPTS="&lt;additional options&gt;"
+
+# End /etc/sysconfig/mouse
+EOF
+</pre></td></tr></table>
+
+<h3>Configuration information</h3>
+
+<p>Examples of values to set <tt>MDEVICE</tt>, <tt>PROTOCOL</tt>, and <tt>GPMOPTS</tt> to are:</p>
+
+<table border="1" width="100%" cellpadding="5">
+<tr><td>
+<pre>
+MDEVICE="/dev/input/mice"
+PROTOCOL="imps2"
+GPMOPTS=""
+</pre></td></tr></table>
+
+<p>A list of which protocol values are known can be found by running <b><tt>gpm -m [device] -t -help</tt></b>. The <tt>MDEVICE</tt> setting depends on which type of mouse you have. For example, <tt>/dev/ttyS0</tt> for a serial mouse (on Windows this is <tt>COM1</tt>), <tt>/dev/input/mice</tt> is often used for USB mice and <tt>/dev/psaux</tt> for PS2 mice. <tt>GPMOPTS</tt> is the 'catch all' for any additional options that are needed for your hardware.</p>
+
+<p><blockquote>From <a href="https://linuxfromscratch.org/blfs/view/10.0/general/gpm.html">BLFS</a> instruction.</blockquote></p>
+
+</body></html>

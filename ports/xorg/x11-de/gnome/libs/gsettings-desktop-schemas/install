@@ -1,0 +1,26 @@
+#!/bin/bash
+# Build package gsettings-desktop-schemas from port
+# Port created by Uknown author
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="3.36.1" # Version of gsettings-desktop-schemas
+
+wget http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.36/gsettings-desktop-schemas-$VERSION.tar.xz
+tar -xf gsettings-desktop-schemas-$VERSION.tar.xz
+cd gsettings-desktop-schemas-$VERSION
+
+sed -i -r 's:"(/system):"/org/gnome\1:g' schemas/*.in &&
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr .. &&
+ninja
+
+ninja install
+
+#glib-compile-schemas /usr/share/glib-2.0/schemas

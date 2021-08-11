@@ -1,0 +1,51 @@
+#!/bin/bash
+# Build package icewm from port
+# Port created by Uknown author
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION=1.8.0 # Version of IceWM
+
+wget https://github.com/ice-wm/icewm/archive/$VERSION/icewm-$VERSION.tar.gz
+tar -xf icewm-$VERSION.tar.gz
+cd icewm-$VERSION
+
+mkdir build &&
+cd    build &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release  \
+      -DCFGDIR=/etc               \
+      -DENABLE_LTO=ON             \
+      -DDOCDIR=/usr/share/doc/icewm-1.8.0  \
+      .. &&
+make
+make install
+
+dialog --backtitle "Система портов Calmira GNU/Linux" --title " ASK " --yesno "Прописать запуск IceWM-$VERSION в файл '~/.xinitrc'? Тогда его содержимое будет затёрто и на его место будет записан запуск WM" 0 0
+
+case $? in
+	1)
+		echo "Прервано"
+	;;
+
+	0)
+		echo "Запись запуска IceWM-$VERSION в '~/.xinitrc'."
+		echo icewm-session > ~/.xinitrc
+	;;
+esac
+
+mkdir -v ~/.icewm                                       &&
+cp -v /usr/share/icewm/keys ~/.icewm/keys               &&
+cp -v /usr/share/icewm/menu ~/.icewm/menu               &&
+cp -v /usr/share/icewm/preferences ~/.icewm/preferences &&
+cp -v /usr/share/icewm/toolbar ~/.icewm/toolbar         &&
+cp -v /usr/share/icewm/winoptions ~/.icewm/winoptions
+
+dialog --backtitle "Система портов Calmira GNU/Linux" --title " NOTICE " \
+	--msgbox "Выполните от имени ОБЫЧНОГО (не root) пользователя скрипт 'setup.sh' из директории с этим портом для установки конфигурационных файлов IceWM.
+
+Эти конф. файлы с настройками оконного менеджера будут применяться только для конкретного пользователя, от чьего имени запустите скрипт." 0 0

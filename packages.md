@@ -133,7 +133,6 @@
 	* `llvm`
 	* `npth`
 	* `ntfs-3g`
-	* `pciutils`
 	* `sudo`
 	* `unrar`
 	* `unzip`

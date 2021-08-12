@@ -1,0 +1,24 @@
+#!/bin/bash
+# Build package gconf from port
+# Port created by Uknown author
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="3.2.6" # Version of gconf
+
+wget http://ftp.gnome.org/pub/gnome/sources/GConf/3.2/GConf-$VERSION.tar.xz
+tar -xf GConf-$VERSION.tar.xz
+cd GConf-$VERSION
+
+./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --disable-orbit \
+            --disable-static &&
+make
+make install &&
+ln -s gconf.xml.defaults /etc/gconf/gconf.xml.system
+
+package_add_port_db

@@ -27,9 +27,27 @@ if [ -z $EDITOR ]; then
 fi
 
 if [ -z $2 ]; then
-	export AUTHOR="Uknown author"
+	# В файле '.config' описаны некоторые переменные,
+	# такие как $AUTHOR.
+	if [ -f ".config" ]; then
+		. .config
+	else
+		export AUTHOR="Uknown author"
+	fi
 else
 	export AUTHOR="$2"
+fi
+
+# Просмотр последнего собранного пакета
+if [ $1 = "last_pkg" ]; then
+	if [ -f ".package" ]; then
+		echo "Последний собранный порт: "
+		cat .package
+		exit 0
+	else
+		echo "Не могу найти файл \".package\", в котором записан последний собранный порт!"
+		exit 1
+	fi
 fi
 
 mkdir $1
@@ -54,15 +72,20 @@ cd
 " > install
 echo "Создание порта..."
 $EDITOR install
+
 echo "Запись информации о пакете..."
+
+source install
 echo "NAME=\"$1\"
 VERSION=\"$VERSION\"
-PRIORITY=user
-PORT=true
-MAINTAINER=\"Linuxoid85 <linuxoid85@gmail.com>\"
+PRIORITY=\"user\"
+PORT=\"true\"
+MAINTAINER=\"$AUTHOR\"
 " > config.sh
 $EDITOR config.sh
 cd ..
 
 unset AUTHOR
+echo "$1-$VERSION" > .package
+
 exit 0

@@ -140,7 +140,9 @@
 	* `usbutils`
 	* `which`
 	* `which-orig`
-	* `xgd-user-dirs`	
+	* `xgd-user-dirs`
+* **Программирование (`programming`):**
+	* `git`	
 * **Xorg (`xorg`):**
 	* **Рабочие окружения (`x11-de`):**
 		* **GNOME (`gnome`):**

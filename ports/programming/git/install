@@ -1,0 +1,21 @@
+#!/bin/bash
+# Build package git from port
+# Port created by Linuxoid85
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="2.28.0" # Version of git
+
+wget https://www.kernel.org/pub/software/scm/git/git-$VERSION.tar.xz 
+tar -xf git-$VERSION.tar.xz
+cd git-$VERSION
+
+./configure --prefix=/usr \
+            --with-gitconfig=/etc/gitconfig \
+            --with-python=python3 &&
+make
+
+make perllibdir=/usr/lib/perl5/5.32/site_perl install

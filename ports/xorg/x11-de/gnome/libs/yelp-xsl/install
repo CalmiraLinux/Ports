@@ -1,0 +1,19 @@
+#!/bin/bash
+# Build package yelp-xsl from port
+# Port created by Uknown author
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="3.36.0" # Version of yelp-xsl
+
+wget http://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.36/yelp-xsl-$VERSION.tar.xz
+tar -xf yelp-xsl-$VERSION.tar.xz
+cd yelp-xsl-$VERSION
+
+./configure --prefix=/usr
+make install
+
+package_add_port_db

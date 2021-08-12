@@ -150,6 +150,7 @@
 				* `rest`
 				* `totem-pl-parser`
 				* `VTE`
+				* `yelp-xsl`
 	* **Минимальная поставка Xorg (`x11-minimal`):**
 		* `libXau`
 		* `libxcb`

@@ -144,6 +144,7 @@
 	* `git`	
 	* **Модули ЯП Python (`python-modules`):**
 		* `Mako`
+		* `MarkupSafe`
 * **Xorg (`xorg`):**
 	* **Рабочие окружения (`x11-de`):**
 		* **GNOME (`gnome`):**

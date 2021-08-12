@@ -1,0 +1,7 @@
+NAME="MarkupSafe"
+VERSION="1.1.1"
+PRIORITY="user"
+PORT="true"
+MAINTAINER="Linuxoid85 <linuxoid85@gmail.com>"
+DESCRIPTION="MarkupSafe is a Python module that implements a XML/HTML/XHTML Markup safe string."
+FILES="/usr/lib/python3.8/site-packages/markupsafe /usr/lib/python3.8/site-packages/MarkupSafe-1.1.1-py3.8.egg-info"

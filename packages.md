@@ -145,6 +145,7 @@
 	* **Модули ЯП Python (`python-modules`):**
 		* `Mako`
 		* `MarkupSafe`
+		* `decorator`
 * **Xorg (`xorg`):**
 	* **Рабочие окружения (`x11-de`):**
 		* **GNOME (`gnome`):**

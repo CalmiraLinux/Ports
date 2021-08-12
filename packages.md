@@ -146,6 +146,7 @@
 			* **Библиотеки (`libs`):**
 				* `gcr`
 				* `gsettings-desktop-schemas`
+				* `libsecret`
 	* **Минимальная поставка Xorg (`x11-minimal`):**
 		* `libXau`
 		* `libxcb`

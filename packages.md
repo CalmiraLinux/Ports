@@ -146,6 +146,7 @@
 		* `Mako`
 		* `MarkupSafe`
 		* `decorator`
+		* `docutils`
 * **Xorg (`xorg`):**
 	* **Рабочие окружения (`x11-de`):**
 		* **GNOME (`gnome`):**

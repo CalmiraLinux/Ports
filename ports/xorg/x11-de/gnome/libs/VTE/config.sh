@@ -1,0 +1,9 @@
+NAME="VTE"
+VERSION="0.60.3"
+PRIORITY=user
+PORT=true
+MAINTAINER="Linuxoid85 <linuxoid85@gmail.com>"
+REQ_DEPS="gtk+-3.24.22 libxml2-2.9.10 pcre2-10.35"
+RECOM_DEPS="gobject_introspection-1.64.1 gnutls-3.6.14 vala-0.48.9"
+OPT_DEPS="FriBidi-1.0.9 gtk-doc-1.32 gtk+-4"
+FILES="$(which vte-2.91) /usr/lib/libvte-2.91.so /usr/include/vte-2.91 /usr/share/gtk-doc/html/vte-2.91"

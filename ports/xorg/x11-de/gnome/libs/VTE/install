@@ -1,0 +1,25 @@
+#!/bin/bash
+# Build package VTE from port
+# Port created by Uknown author
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="0.60.3" # Version of VTE
+
+wget http://ftp.gnome.org/pub/gnome/sources/vte/0.60/vte-$VERSION.tar.xz
+tar -xf vte-$VERSION.tar.xz
+cd vte-$VERSION
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr --sysconfdir=/etc -Dfribidi=false -D_systemd=false .. &&
+ninja
+
+ninja install &&
+rm -v /etc/profile.d/vte.*
+
+package_add_port_db

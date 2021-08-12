@@ -149,6 +149,7 @@
 				* `libsecret`
 				* `rest`
 				* `totem-pl-parser`
+				* `VTE`
 	* **Минимальная поставка Xorg (`x11-minimal`):**
 		* `libXau`
 		* `libxcb`

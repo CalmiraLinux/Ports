@@ -148,6 +148,7 @@
 				* `gsettings-desktop-schemas`
 				* `libsecret`
 				* `rest`
+				* `totem-pl-parser`
 	* **Минимальная поставка Xorg (`x11-minimal`):**
 		* `libXau`
 		* `libxcb`

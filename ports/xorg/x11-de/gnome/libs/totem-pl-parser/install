@@ -1,0 +1,23 @@
+#!/bin/bash
+# Build package totem-pl-parser from port
+# Port created by Uknown author
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="3.26.5" # Version of totem-pl-parser
+
+wget http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-$VERSION.tar.xz
+tar -xf totem-pl-parser-$VERSION.tar.xz
+cd totem-pl-parser-$VERSION
+
+mkdir build &&
+cd    build &&
+
+meson --prefix /usr --default-library shared .. &&
+ninja
+ninja install
+
+package_add_port_db

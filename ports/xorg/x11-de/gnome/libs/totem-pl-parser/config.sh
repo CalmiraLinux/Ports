@@ -1,0 +1,9 @@
+NAME=totem-pl-parser
+VERSION="3.26.5"
+PRIORITY="user"
+PORT="true"
+DESCRIPTION="The Totem PL Parser package contains a simple GObject-based library used to parse multiple playlist formats."
+MAINTAINER="Linuxoid85 <linuxoid85@gmail.com>"
+REQ_DEPS="libsoup-2.70.0"
+RECOM_DEPS="gobject-introspection-1.64.1 libarchive-3.4.3 libgcrypt-1.8.6"
+OPT_DEPS="cmake-3.18.1 gtk-doc-1.32 gvfs-1.44.1 LCOV"

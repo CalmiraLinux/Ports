@@ -154,6 +154,8 @@
 				* `VTE`
 				* `yelp-xsl`
 				* `GConf`
+	* **Дополнительные библиотеки Xorg (`x11-libs`):**
+		* `libdrm`
 	* **Минимальная поставка Xorg (`x11-minimal`):**
 		* `libXau`
 		* `libxcb`

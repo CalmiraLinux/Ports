@@ -46,6 +46,8 @@ echo "#!/bin/bash
 source /usr/lib/cpkg/other-functions.sh
 cd /usr/src
 
+VERSION=\"\" # Version of $1
+
 wget 
 tar -xf 
 cd 
@@ -53,6 +55,12 @@ cd
 echo "Создание порта..."
 $EDITOR install
 echo "Запись информации о пакете..."
+echo "NAME=\"$1\"
+VERSION=\"$VERSION\"
+PRIORITY=user
+PORT=true
+MAINTAINER=\"Linuxoid85 <linuxoid85@gmail.com>\"
+" > config.sh
 $EDITOR config.sh
 cd ..
 

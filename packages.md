@@ -142,6 +142,8 @@
 	* `xgd-user-dirs`
 * **Программирование (`programming`):**
 	* `git`	
+	* **Модули ЯП Python (`python-modules`):**
+		* `Mako`
 * **Xorg (`xorg`):**
 	* **Рабочие окружения (`x11-de`):**
 		* **GNOME (`gnome`):**

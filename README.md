@@ -22,6 +22,12 @@ Calmira Ports - репозиторий, содержащий порты для C
 		* `xdrivers` - драйвера Xorg;
 	* `x11-wm` - оконные менеджеры Xorg;
 
+## Документация
+
+Введение в порты (информация об установке порта) находится [здесь](https://calmiralinux.github.io/CalmiraLinux/docs/packages/intro_ports.html).
+
+Создание порта для Calmira GNU/Linux находится [здесь](https://calmiralinux.github.io/CalmiraLinux/docs/packages/makeport.html)
+
 ## TODO
 * Добавить информацию о каждом пакете;
 * Занесение пакетов из портов в базу данных cpkg;

@@ -141,7 +141,8 @@
 	* `which-orig`
 	* `xgd-user-dirs`
 * **Программирование (`programming`):**
-	* `git`	
+	* `git-2.28.0`
+	* `nasm-2.15.03`
 	* **Модули ЯП Python (`python-modules`):**
 		* `Mako`
 		* `MarkupSafe`

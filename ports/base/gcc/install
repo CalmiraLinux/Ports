@@ -36,7 +36,9 @@ ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/11.1.0/liblto_plugin.so \
 
 mkdir -pv /usr/share/gdb/auto-load/usr/lib{,32}
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib
-mv -v /usr/lib32/*gdb.py /usr/share/gdb/auto-load/usr/lib32
+
+# For multilib
+# mv -v /usr/lib32/*gdb.py /usr/share/gdb/auto-load/usr/lib32
 
 clear
 echo -e "\e[1;32mТестирование работоспособности...\e[0m

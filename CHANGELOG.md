@@ -3,6 +3,9 @@
 Список изменений в системе портов Calmira GNU/Linux. Сформировано на основе `git log`.
 
 ## Calmira LX4 1.2 (2022.1): ветка Testing
+* 19.08.2021
+	* Фикс [#44](https://github.com/CalmiraLinux/CalmiraLinux/issues/44);
+
 * 17.08.2021
 	* Добавление порта с пакетом `nasm`;
 

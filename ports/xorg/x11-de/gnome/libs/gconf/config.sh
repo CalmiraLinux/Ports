@@ -1,9 +1,0 @@
-NAME="gconf"
-VERSION="3.2.6"
-PRIORITY=user
-PORT=true
-MAINTAINER="Linuxoid85 <linuxoid85@gmail.com>"
-REQ_DEPS="dbus-glib-0.110 libxml2-2.9.10"
-RECOM_DEPS="gobject-introspection-1.64.1 gtk+-3.24.22 polkit-0.117"
-OPT_DEPS="openldap-2.4.51"
-FILES="$(which gconf-merge-tree) $(which gconftool-2) $(which gsettings-data-convert) $(which gsettings-schema-convert) /etc/gconf /usr/include/gconf /usr/lib/GConf /usr/share/gtk-doc/html/gconf /usr/share/sgml/gconf"

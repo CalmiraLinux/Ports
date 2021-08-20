@@ -150,16 +150,7 @@
 		* `docutils`
 * **Xorg (`xorg`):**
 	* **Рабочие окружения (`x11-de`):**
-		* **GNOME (`gnome`):**
-			* **Библиотеки (`libs`):**
-				* `gcr`
-				* `gsettings-desktop-schemas`
-				* `libsecret`
-				* `rest`
-				* `totem-pl-parser`
-				* `VTE`
-				* `yelp-xsl`
-				* `GConf`
+
 	* **Дополнительные библиотеки Xorg (`x11-libs`):**
 		* `libdrm`
 	* **Минимальная поставка Xorg (`x11-minimal`):**

@@ -1,9 +1,0 @@
-NAME=rest
-VERSION="0.8.1"
-PRIORITY="user"
-PORT="true"
-DESCRIPTION="The rest package contains a library that was designed to make it easier to access web services that claim to be 'RESTful'. It includes convenience wrappers for libsoup and libxml to ease remote use of the RESTful API."
-REQ_DEPS="make-ca-1.7 libsoup-2.70.0"
-RECOM_DEPS="gobject-introspection-1.64.1"
-OPT_DEPS="gtk-doc-1.32 LCOV"
-FILES="/usr/lib/{librest,librest-extras}-0.7.so /usr/include/rest-0.7 /usr/share/gtk-doc/html/rest-0.7"

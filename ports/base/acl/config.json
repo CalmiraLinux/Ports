@@ -1,0 +1,40 @@
+{
+    "name": "acl",
+    "version": "2.3.1",
+    "description": "Access Control List или ACL — список управления доступом, который определяет, кто или что может получать доступ к объекту (программе, процессу или файлу), и какие именно операции разрешено или запрещено выполнять субъекту (пользователю, группе пользователей). Данный пакет содержит утилиты для администрирования списками управления доступом (ACL).",
+    "site": "https://download.savannah.gnu.org/releases/acl",
+    "maintainer": "<linuxoid85@gmail.com>",
+    "priority": "system",
+    "deps": {
+        "required": [
+            "attr",
+            "bash",
+            "coreutuls",
+            "binutils",
+            "gcc",
+            "gettext",
+            "grep",
+            "m4",
+            "make",
+            "perl",
+            "sed",
+            "texinfo"
+        ],
+        "runtime": [
+            "attr",
+            "glibc"
+        ],
+        "test": [
+            "automake",
+            "diffutils",
+            "findutils",
+            "libtool"
+        ],
+        "before": [
+            "coreutils",
+            "sed",
+            "tar",
+            "vim"
+        ]
+    }
+}

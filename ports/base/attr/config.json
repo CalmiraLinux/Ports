@@ -1,0 +1,8 @@
+{
+    "name": "attr",
+    "version": "2.5.1",
+    "description": "Программы для администрирования расширенных атрибутов объектов файловой системы.",
+    "site": "https://download.savannah.gnu.org/releases/attr",
+    "maintainer": "Michail Krasnov <linuxoid85@gmail.com>",
+    "priority": "system"
+}

@@ -4,5 +4,47 @@
     "description": "Программы для администрирования расширенных атрибутов объектов файловой системы.",
     "site": "https://download.savannah.gnu.org/releases/attr",
     "maintainer": "Michail Krasnov <linuxoid85@gmail.com>",
-    "priority": "system"
+    "priority": "system",
+    "deps": {
+    	"required": [
+    		"bash",
+    		"binutils",
+    		"coreutils",
+    		"gcc",
+    		"gettext",
+    		"glibc",
+    		"grep",
+    		"m4",
+    		"make",
+    		"sed",
+    		"texinfo"
+    	],
+    	"runtime": [
+    	    "glibc"
+    	],
+    	"test": [
+    	    "automake",
+    	    "diffutils",
+    	    "findutils",
+    	    "libtool"
+    	],
+    	"optional": [],
+    	"before": [
+    	    "acl",
+    	    "libcap"
+    	],
+    	"conflict": []
+   	},
+   	"bins": [
+   		"attr",
+   		"getfattr",
+   		"setfattr"
+   	],
+   	"libs": [
+   		"libattr.so"
+   	],
+   	"dirs": [
+   		"/usr/include/attr",
+   		"/usr/share/doc/attr-2.5.1"
+   	]
 }

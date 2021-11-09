@@ -4,5 +4,46 @@
     "description": "Усовершенствованная и модернизированная вариация командной оболочки Bourne shell. Этот пакет выполняет требования стандарта LSB Core для обеспечения интерфейса Bourne Shell в системе. Он был выбран из числа других оболочек из-за широкого распространения и возможностей, которые выходят далеко за пределы базовых функций программ-оболочек.",
     "site": "https://ftp.gnu.org/gnu/bash",
     "maintainer": "Michail Krasnov <linuxoid85@gmail.com>",
-    "priority": "system"
+    "priority": "system",
+    "deps": {
+        "required": [
+            "bash",
+            "binutils",
+            "bison",
+            "coreutils",
+            "diffutils",
+            "gawk",
+            "gcc",
+            "glibc",
+            "grep",
+            "make",
+            "ncurses",
+            "patch",
+            "readline",
+            "sed",
+            "texinfo"
+        ],
+        "runtime": [
+            "glibc",
+            "ncurses",
+            "readline"
+        ],
+        "test": [
+            "expect",
+            "shadow"
+        ],
+        "optional": [
+            "xorg"
+        ]
+    },
+    "bins": [
+        "bash",
+        "sh",
+        "bashbug"
+    ],
+    "dirs": [
+        "/usr/include/bash",
+        "/usr/lib/bash",
+        "/usr/share/doc/bash-5.1.8"
+    ]
 }

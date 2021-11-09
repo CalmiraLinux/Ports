@@ -36,5 +36,17 @@
             "tar",
             "vim"
         ]
-    }
+    },
+    "bins": [
+    	"chacl",
+    	"getfacl",
+    	"setfacl"
+    ],
+    "libs": [
+    	"libacl.so"
+   	],
+   	"dirs": [
+   	    "/usr/include/acl",
+   	    "/usr/share/doc/acl-2.3.1"
+   	]
 }

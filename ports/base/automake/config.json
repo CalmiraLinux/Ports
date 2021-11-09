@@ -4,5 +4,53 @@
     "description": "Программы для создания файлов Makefile для использования его программой Autoconf. Он также необходим для повторной компиляции пакета после обновления процедур сборки.",
     "site": "https://ftp.gnu.org/gnu/automake",
     "maintainer": "Michail Krasnov <linuxoid85@gmail.com>",
-    "priority": "system"
+    "priority": "system",
+    "deps": {
+    	"required": [
+    		"autoconf",
+    		"bash",
+    		"coreutils",
+    		"gettext",
+    		"grep",
+    		"m4",
+    		"make",
+    		"perl",
+    		"sed",
+    		"texinfo"
+	    ],
+	    "runtime": [
+	        "bash",
+	        "coreutils",
+	        "grep",
+	        "m4",
+	        "sed",
+	        "texinfo"
+	    ],
+	    "test": [
+	        "binutils",
+	        "bison",
+	        "bzip2",
+	        "dejagnu",
+	        "diffutils",
+	        "expect",
+	        "findutils",
+	        "flex",
+	        "gcc",
+	        "gettext",
+	        "gzip",
+	        "libtool",
+	        "tar"
+	    ]
+	},
+	"bins": [
+	    "aclocal",
+	    "aclocal-1.16",
+	    "automake",
+	    "automake-1.16"
+	],
+	"dirs": [
+	    "/usr/share/aclocal-1.16",
+	    "/usr/share/automake-1.16",
+	    "/usr/share/doc/automake-1.16.5"
+	]
 }

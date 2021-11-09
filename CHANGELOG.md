@@ -3,6 +3,16 @@
 Список изменений в системе портов Calmira GNU/Linux. Сформировано на основе `git log`.
 
 ## Calmira LX4 1.1 (2021.5): ветка Testing
+
+* 09.11.2021 Михаил Краснов <linuxoid85@gmail.com>
+    * Добавление новых сведений в `config.json` портов:
+        * `base/acl`;
+        * `base/attr`;
+        * `base/autoconf`;
+        * `base/automake`;
+        * `base/bash`;
+        * `base/bc`
+
 * 24.09.2021
     * Мелкое обновление для совместимости с `port-utils`: замена всех `config.sh` на `config.json`;
 

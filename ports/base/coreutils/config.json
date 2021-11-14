@@ -1,1 +1,16 @@
-{ "name": "coreutils", "version": "8.32", "description": "Coreutils - пакет программного обеспечения GNU, содержащий большое количество основных утилит, таких как cat, ls и rm, необходимых для UNIX-подобных операционных систем. Пакет включает несколько более ранних пакетов — textutils, shellutils, fileutils и другие различные утилиты.", "site": "site", "maintainer": "Linuxoid85", "priority": "system", "deps": { "required": [ "" ], "runtime": [ "" ], "test": [ "" ], "optional": [ "" ], "before": [ "" ], "conflict": [ "" ] } }
+{
+	"name": "coreutils",
+	"version": "9.0",
+	"description": "Coreutils - пакет программного обеспечения GNU, содержащий большое количество основных утилит, таких как cat, ls и rm, необходимых для UNIX-подобных операционных систем. Пакет включает несколько более ранних пакетов — textutils, shellutils, fileutils и другие различные утилиты.",
+	"site": "https://gnu.org/software/coreutils",
+	"maintainer": "Linuxoid85",
+	"priority": "system",
+	"deps": {
+		"required": [ "" ],
+		"runtime": [ "" ],
+		"test": [ "" ],
+		"optional": [ "" ],
+		"before": [ "" ],
+		"conflict": [ "" ]
+	}
+}

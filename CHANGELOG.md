@@ -5,6 +5,7 @@
 ## Calmira LX4 1.1 (2021.5): ветка Testing
 
 * 14.11.2021 Михаил Краснов <linuxoid85@gmail.com>
+	* Фикс [#18](https://github.com/CalmiraLinux/Ports/issues/18).
 	* **Обновление портов:**
 		* `bc-5.1.1`;
 		* `automake-1.16.5`.

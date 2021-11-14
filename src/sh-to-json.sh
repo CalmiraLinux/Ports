@@ -19,7 +19,7 @@ config="{
     \"name\": \"$NAME\",
     \"version\": \"$VERSION\",
     \"description\": \"$DESCRIPTION\",
-    \"site\": \"site\",
+    \"site\": \"$SITE\",
     \"maintainer\": \"$MAINTAINER\",
     \"priority\": \"$PRIORITY\",
     \"deps\": {

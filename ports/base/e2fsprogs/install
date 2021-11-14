@@ -6,13 +6,15 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/e2fsprogs-1.46.2.tar.gz
-tar -xf e2fsprogs-1.46.2.tar.gz
-cd e2fsprogs-1.46.2
+VERSION="1.46.4"
+
+wget https://lx4u.ru/downloads/packages/e2fsprogs-$VERSION.tar.gz
+tar -xf e2fsprogs-$VERSION.tar.gz
+cd e2fsprogs-$VERSION
 
 ./configure --prefix=/usr             \
+             --bindir=/bin            \
              --sysconfdir=/etc        \
-	     --bindir=/bin            \
              --enable-elf-shlibs      \
              --disable-libblkid       \
              --disable-libuuid        \

@@ -6,9 +6,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/grep-3.6.tar.xz
-tar -xf grep-3.6.tar.xz
-cd grep-3.6
+VERSION="3.7"
+
+wget https://lx4u.ru/downloads/packages/grep-$VERSION.tar.xz
+tar -xf grep-$VERSION.tar.xz
+cd grep-$VERSION
 
 ./configure --prefix=/usr --bindir=/bin
 make

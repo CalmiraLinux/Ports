@@ -1,0 +1,35 @@
+{
+	"name": "binutils",
+	"version": "2.36.1",
+	"description": "Пакет содержит компоновщик, ассемблер, и другие утилиты и инструменты для работы с объектными файлам. Программы в этом пакете необходимы для компиляции большинства пакетов.",
+	"site": "https://ftp.gnu.org/gnu/binutils",
+	"maintainer": "Linuxoid85 <linuxoid85@gmail.com>",
+	"priority": "system",
+	"deps": {
+		"required": [
+			"base/bash",
+			"base/binutils",
+			"base/coreutils",
+			"base/diffutils",
+			"base/file",
+			"base/flex",
+			"base/gawk",
+			"base/gcc",
+			"base/glibc",
+			"base/grep",
+			"base/make",
+			"base/perl",
+			"base/sed",
+			"base/texinfo",
+			"base/zlib"
+		],
+		"runtime": [
+			"base/glibc",
+			"base/zlib"
+		],
+		"test": [
+			"base/dejagnu",
+			"base/expect"
+		]
+	}
+}

@@ -1,0 +1,1 @@
+{ "name": "file", "version": "5.40", "description": "Пакет содержит утилиты для определения типов файлов. Некоторым пакетам требуется, чтобы он был установлен.", "site": "site", "maintainer": "Linuxoid85", "priority": "system", "deps": { "required": [ "" ], "runtime": [ "" ], "test": [ "" ], "optional": [ "" ], "before": [ "" ], "conflict": [ "" ] } }

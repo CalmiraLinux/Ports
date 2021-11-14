@@ -1,0 +1,8 @@
+{
+	"name": "gzip",
+	"version": "1.11",
+	"description": "Пакет содержит программы для сжатия и распаковки файлов. Он необходим, чтобы выполнять распаковку большинства пакетов.",
+	"maintainer": "Linuxoid85",
+	"site": "https://www.gnu.org/software/gzip",
+	"priority": "system"
+}

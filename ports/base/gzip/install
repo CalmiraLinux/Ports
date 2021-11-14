@@ -6,11 +6,15 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/gzip-1.10.tar.xz
-tar -xf gzip-1.10.tar.xz
-cd gzip-1.10
+VERSION="1.11"
+
+wget https://lx4u.ru/downloads/packages/gzip-$VERSION.tar.xz
+tar -xf gzip-$VERSION.tar.xz
+cd gzip-$VERSION
 
 ./configure --prefix=/usr
 
 make
 make install
+
+mv -v /usr/bin/gzip /bin

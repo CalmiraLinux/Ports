@@ -2,9 +2,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/bc-4.0.2.tar.xz
-tar -xf bc-4.0.2.tar.xz
-cd bc-4.0.2
+VERSION="5.1.1"
+
+wget https://lx4u.ru/downloads/packages/bc-$VERSION.tar.xz
+tar -xf bc-$VERSION.tar.xz
+cd bc-$VERSION
 
 CC=gcc ./configure --prefix=/usr -G -O3
 make

@@ -7,6 +7,7 @@
 * 14.11.2021 Михаил Краснов <linuxoid85@gmail.com>
 	* Фикс [#18](https://github.com/CalmiraLinux/Ports/issues/18).
 	* **Обновление портов:**
+		* `gawk-5.1.1`;
 		* `file-5.41`;
 		* `e2fsprogs-1.46.4`;
 		* `diffutils-3.8`;

@@ -6,9 +6,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/diffutils-3.7.tar.xz
-tar -xf diffutils-3.7.tar.xz
-cd diffutils-3.7
+VERSION="3.8"
+
+wget https://lx4u.ru/downloads/packages/diffutils-$VERSION.tar.xz
+tar -xf diffutils-$VERSION.tar.xz
+cd diffutils-$VERSION
 
 ./configure --prefix=/usr
 

@@ -7,6 +7,7 @@
 * 14.11.2021 Михаил Краснов <linuxoid85@gmail.com>
 	* Фикс [#18](https://github.com/CalmiraLinux/Ports/issues/18).
 	* **Обновление портов:**
+		* `diffutils-3.8`;
 		* `coreutils-9.0`;
 		* `bc-5.1.1`;
 		* `automake-1.16.5`.

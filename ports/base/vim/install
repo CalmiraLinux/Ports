@@ -6,9 +6,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/vim-8.2.3060.tar.gz
-tar -xf vim-8.2.3060.tar.gz
-cd vim-8.2.3060
+VERSION="8.2.3665"
+
+wget https://lx4u.ru/downloads/packages/vim-$VERSION.tar.gz
+tar -xf vim-$VERSION.tar.gz
+cd vim-$VERSION
 
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 ./configure --prefix=/usr

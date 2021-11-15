@@ -1,0 +1,22 @@
+{
+    "name": "vim",
+    "version": "8.2.3665",
+    "description": "Один из мощнейших текстовых редакторов с полной свободой настройки и автоматизации, возможными благодаря расширениям и надстройкам.",
+    "maintainer": "Linuxoid85",
+    "site": "https://www.vim.org/",
+    "priority": "system",
+    "bins": [
+        "ex",
+        "rview",
+        "rvim",
+        "vi",
+        "view",
+        "vim",
+        "vimdiff",
+        "vimtutor",
+        "xxd"
+    ],
+    "dirs": [
+        "/usr/share/vim"
+    ]
+}

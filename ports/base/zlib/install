@@ -2,9 +2,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/zlib-ng-2.0.3.tar.gz
-tar -xf zlib-ng-2.0.3.tar.gz
-cd zlib-ng-2.0.3
+VERSION="2.0.5"
+
+wget https://lx4u.ru/downloads/packages/zlib-ng-$VERSION.tar.gz
+tar -xf zlib-ng-$VERSION.tar.gz
+cd zlib-ng-$VERSION
 
 ./configure --prefix=/usr --zlib-compat --native
 make

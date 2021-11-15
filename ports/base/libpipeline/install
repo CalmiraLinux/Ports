@@ -6,9 +6,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/libpipeline-1.5.3.tar.gz
-tar -xf libpipeline-1.5.3.tar.gz
-cd libpipeline-1.5.3
+VERSION="1.5.4"
+
+wget https://lx4u.ru/downloads/packages/libpipeline-$VERSION.tar.gz
+tar -xf libpipeline-$VERSION.tar.gz
+cd libpipeline-$VERSION
 
 ./configure --prefix=/usr
 

@@ -6,9 +6,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/wget-1.21.1.tar.gz
-tar -xf wget-1.21.1.tar.gz
-cd wget-1.21.1
+VERSION="1.21.2"
+
+wget https://lx4u.ru/downloads/packages/wget-$VERSION.tar.gz
+tar -xf wget-$VERSION.tar.gz
+cd wget-$VERSION
 
 dialog  --backtitle "Система портов Calmira Linux" --title " WARNING " \
 	--msgbox "Советуется установить пакет make-ca, если он ещё не установлен. Он требуется для корректной работы wget и некоторых других пакетов." 0 0

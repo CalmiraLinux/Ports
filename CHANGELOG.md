@@ -8,6 +8,24 @@
 	* Дополнение сведений о новом стандарте конфигурационного файла.
 	* Фикс [#18](https://github.com/CalmiraLinux/Ports/issues/18).
 	* **Обновление портов:**
+		* `dhcpcd-9.4.1`;
+		* `linux-5.15.1`;
+		* `zlib-ng-2.0.5`;
+		* `tcl-8.6.12`;
+		* `sysvinit-3.0`;
+		* `wget-1.21.2`;
+		* `vim-8.2.3665`;
+		* `util-linux-2.37.2`;
+		* `shadow-4.9`;
+		* `python-3.10.0`;
+		* `ncurses-6.3`;
+		* `meson-0.60.1`;
+		* `linux-5.15.1`;
+		* `libcap-2.60`;
+		* `libpipeline-1.5.4`;
+		* `iproute2-5.15.0`;
+		* `inetutils-2.2`;
+		* `iana-etc-20211004`;
 		* `gzip-1.11`;
 		* `grep-3.7`;
 		* `glibc-2.34`;

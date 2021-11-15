@@ -6,9 +6,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/iproute2-5.13.0.tar.xz
-tar -xvf iproute2-5.13.0.tar.xz
-cd iproute2-5.13.0
+VERSION="5.15.0"
+
+wget https://lx4u.ru/downloads/packages/iproute2-$VERSION.tar.xz
+tar -xvf iproute2-$VERSION.tar.xz
+cd iproute2-$VERSION
 
 sed -i /ARPD/d Makefile
 rm -fv man/man8/arpd.8
@@ -23,8 +25,8 @@ dialog  --backtitle "Система портов Calmira Linux" --title " ASK " 
 case $? in
 	0)
 		echo -e "\e[1mВыбрана установка документации...\e[0m"
-		mkdir -v /usr/share/doc/iproute2
-		cp -v COPYING README* /usr/share/doc/iproute2
+		mkdir -v /usr/share/doc/iproute2-$VERSION
+		cp -v COPYING README* /usr/share/doc/iproute2-$VERSION
 	;;
 	
 	1)

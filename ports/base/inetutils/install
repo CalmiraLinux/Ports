@@ -6,9 +6,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/inetutils-2.0.tar.xz
-tar -xf inetutils-2.0.tar.xz
-cd inetutils-2.0
+VERSION="2.2"
+
+wget https://lx4u.ru/downloads/packages/inetutils-$VERSION.tar.xz
+tar -xf inetutils-$VERSION.tar.xz
+cd inetutils-$VERSION
 
 ./configure --prefix=/usr        \
             --localstatedir=/var \

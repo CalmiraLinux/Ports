@@ -1,0 +1,11 @@
+{
+    "name": "wget",
+    "version": "1.21.2",
+    "description": "Пакет Wget предназначен для загрузки файлов из интернета.",
+    "maintainer": "Linuxoid85",
+    "site": "https://ftp.gnu.org/gnu/wget",
+    "priority": "system",
+    "bins": [
+        "wget"
+    ]
+}

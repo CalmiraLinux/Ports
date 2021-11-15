@@ -1,7 +1,7 @@
 {
 	"name": "dhcpcd",
-	"version": "9.1.4",
-	"priority": "user",
+	"version": "9.4.1",
+	"priority": "system",
 	"description": "dhcpcd is an implementation of the DHCP client specified in RFC2131. A DHCP client is useful for connecting your computer to a network which uses DHCP to assign network addresses. dhcpcd strives to be a fully featured, yet very lightweight DHCP client.",
 	"maintainer": "Linuxoid85 <linuxoid85@gmail.com>",
 	"deps": {
@@ -10,7 +10,7 @@
 			"ntp",
 			"chronyd",
 			"ypbind"
-		],
+		]
 	},
 	"bins": [
 		"dhcpcd"

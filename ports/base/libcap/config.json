@@ -1,0 +1,8 @@
+{
+    "name": "libcap",
+    "version": "2.60",
+    "description": "Пакет Libcap реализует интерфейсы пользовательского пространства для возможностей POSIX 1003.1 e, доступных в ядрах Linux. Эти возможности представляют собой разделение привилегий All powerful root на набор различных привилегий.",
+    "maintainer": "Linuxoid85",
+    "site": "https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/",
+    "priority": "system"
+}

@@ -1,0 +1,18 @@
+#!/bin/bash
+# Build package decorator from port
+# Port created by Linuxoid85 <linuxoid85@gmail.com>
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="4.4.2" # Version of decorator
+
+wget https://files.pythonhosted.org/packages/source/d/decorator/decorator-$VERSION.tar.gz
+tar -xf decorator-$VERSION.tar.gz
+cd decorator-$VERSION
+
+python3 setup.py build
+python3 setup.py install --optimize=1
+package_add_port_db

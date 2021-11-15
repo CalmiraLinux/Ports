@@ -2,9 +2,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/file-5.40.tar.gz
-tar -xf file-5.40.tar.gz;
-cd file-5.40
+VERSION="5.41"
+
+wget https://lx4u.ru/downloads/packages/file-$VERSION.tar.gz
+tar -xf file-$VERSION.tar.gz;
+cd file-$VERSION
 
 ./configure --prefix=/usr
 make

@@ -6,16 +6,18 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/openssl-1.1.1k.tar.gz
-tar -xf openssl-1.1.1k.tar.gz
-cd openssl-1.1.1k
+VERSION="3.0.0"
+
+wget https://lx4u.ru/downloads/packages/openssl-$VERSION.tar.gz
+tar -xf openssl-$VERSION.tar.gz
+cd openssl-$VERSION
 
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
          --libdir=lib          \
          shared                \
          zlib-dynamic
-         
+
 make
 sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 make MANSUFFIX=ssl install

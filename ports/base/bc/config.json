@@ -1,0 +1,34 @@
+{
+    "name": "bc",
+    "version": "5.1.1",
+    "description": "BC (basic calculator) — интерактивный интерпретатор Си-подобного языка, позволяет выполнять вычисления с произвольно заданной точностью. Часто используется как калькулятор в командной строке UNIX-подобных операционных систем.",
+    "site": "https://github.com/gavinhoward/bc",
+    "maintainer": "Michail Krasnov <linuxoid85@gmail.com>",
+    "priority": "system",
+    "deps": {
+        "required": [
+            "bash",
+            "binutils",
+            "coreutils",
+            "gcc",
+            "glibc",
+            "grep",
+            "make"
+        ],
+        "runtime": [
+            "glibc",
+            "ncurses",
+            "readline"
+        ],
+        "test": [
+            "gawk"
+        ],
+        "before": [
+            "linux"
+        ]
+    },
+    "bins": [
+        "bc",
+        "dc"
+    ]
+}

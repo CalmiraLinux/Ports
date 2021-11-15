@@ -6,13 +6,16 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/meson-0.58.1.tar.gz
-tar -xf meson-0.58.1.tar.gz
-cd meson-0.58.1
+VERSION="0.60.1"
+
+wget https://lx4u.ru/downloads/packages/meson-$VERSION.tar.gz
+tar -xf meson-$VERSION.tar.gz
+cd meson-$VERSION
 
 sed -i "s/return 'lib64'/return 'lib'/g" mesonbuild/mesonlib/universal.py
 
 python3 setup.py build
+
 python3 setup.py install --root=dest
 cp -rv dest/* /
 install -vDm644 data/shell-completions/bash/meson /usr/share/bash-completion/completions/meson

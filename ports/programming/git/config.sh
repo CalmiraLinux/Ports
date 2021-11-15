@@ -1,0 +1,8 @@
+NAME="git"
+VERSION="2.28.0"
+PRIORITY="user"
+PORT="true"
+MAINTAINER="Uknown author"
+RECOM_DEPS="curl-7.71.1"
+OPT_DEPS="pcre2-10.35 (or the deprecated PCRE-8.44)"
+FILES="$(which git) $(which git-receive-pack) $(which git-upload-archive) $(which git-upload-pack) $(which git-cvsserver) $(which git-shell) $(which gitk) /usr/libexec/git-core /usr/share/{doc/git-2.28.0,git-core,git-gui,gitk,gitweb}"

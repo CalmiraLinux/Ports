@@ -2,8 +2,10 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/iana-etc-20210611.tar.gz
-tar -xvf iana-etc-20210611.tar.gz
-cd iana-etc-20210611
+VERSION="20211004"
+
+wget https://lx4u.ru/downloads/packages/iana-etc-$VERSION.tar.gz
+tar -xvf iana-etc-$VERSION.tar.gz
+cd iana-etc-$VERSION
 
 cp services protocols /etc

@@ -1,0 +1,3 @@
+# Файлы .config и .package (создаваемые скриптом makeport.sh) не нужны в репозитории
+/ports/**.config
+/ports/**.package

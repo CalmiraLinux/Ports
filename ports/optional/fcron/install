@@ -1,0 +1,39 @@
+#!/bin/bash
+# Build package fcron from port
+# Port created by Michail Krasnov
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="3.2.1" # Version of fcron
+
+wget http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
+tar -xf fcron-$VERSION.src.tar.gz
+cd fcron-$VERSION
+
+if grep 'cron.' /etc/syslog.conf; then
+	echo "OK"
+else
+cat >> /etc/syslog.conf << "EOF"
+# Begin fcron addition to /etc/syslog.conf
+
+cron.* -/var/log/cron.log
+
+# End fcron addition
+EOF
+fi
+
+/etc/rc.d/init.d/sysklogd reload
+groupadd -g 22 fcron &&
+useradd -d /dev/null -c "Fcron User" -g fcron -s /bin/false -u 22 fcron
+
+./configure --prefix=/usr          \
+            --sysconfdir=/etc      \
+            --localstatedir=/var   \
+            --without-sendmail     \
+            --with-boot-install=no \
+            --with-systemdsystemunitdir=no &&
+make
+make install

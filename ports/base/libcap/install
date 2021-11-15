@@ -6,13 +6,16 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/libcap-2.51.tar.xz
-tar -xf libcap-2.51.tar.xz
-cd libcap-2.51
+VERSION="2.60"
+
+wget https://lx4u.ru/downloads/packages/libcap-$VERSION.tar.xz
+tar -xf libcap-$VERSION.tar.xz
+cd libcap-$VERSION
 
 sed -i '/install -m.*STA/d' libcap/Makefile
+
 make lib=lib
-make lib=lib PKGCONFIGDIR=/usr/lib/pkgconfig install
+make lib=lib install
 chmod -v 755 /lib/lib{cap,psx}.so.2
 
 mv -v /lib/libpsx.a /usr/lib

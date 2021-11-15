@@ -1,0 +1,26 @@
+#!/bin/bash
+# Build package WE from port
+# Port created by Uknown author
+#
+# (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
+
+source /usr/lib/cpkg/other-functions.sh
+cd /usr/src
+
+VERSION="29" # Version of WT (Wireless Tools)
+
+wget https://hewlettpackard.github.io/wireless-tools/wireless_tools.$VERSION.tar.gz http://www.linuxfromscratch.org/patches/blfs/10.0/wireless_tools-29-fix_iwlist_scanning-1.patch
+tar -xf wireless_tools.$VERSION.tar.gz
+cd wireless_tools.$VERSION
+
+print_ps_msg " NOTE " "To use Wireless Tools, the kernel must have the appropriate drivers and other support available. The appropriate bus must also be available. For many laptops, the PCMCIA bus (CONFIG_PCCARD) needs to be built. In some cases, this bus support will also need to be built for embedded wireless cards. The appropriate bridge support also needs to be built. For many modern laptops, the CardBus host bridge (CONFIG_YENTA) will be needed.
+
+In addition to the bus, the actual driver for the specific wireless card must also be available. There are many wireless cards and they don't all work with Linux. The first place to look for card support is the kernel. The drivers are located in Device Drivers → Network Device Support → Wireless LAN (non-hamradio). There are also external drivers available for some very common cards. For more information, look at the user notes.
+
+After the correct drivers are loaded, the interface will appear in /proc/net/wireless."
+
+patch -Np1 -i ../wireless_tools-29-fix_iwlist_scanning-1.patch
+make
+make PREFIX=/usr INSTALL_MAN=/usr/share/man install
+
+package_add_port_db

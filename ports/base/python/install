@@ -6,9 +6,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/Python-3.9.6.tar.xz
-tar -xf Python-3.9.6.tar.xz
-cd Python-3.9.6
+VERSION="3.10.0"
+
+wget https://lx4u.ru/downloads/packages/Python-$VERSION.tar.xz
+tar -xf Python-$VERSION.tar.xz
+cd Python-$VERSION
 
 ./configure --prefix=/usr        \
             --enable-shared      \
@@ -16,6 +18,6 @@ cd Python-3.9.6
             --with-system-ffi    \
             --with-ensurepip=yes \
             --enable-optimizations
-            
+
 make
-make install
+make installs

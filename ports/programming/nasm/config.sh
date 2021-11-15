@@ -1,0 +1,8 @@
+NAME="nasm"
+VERSION="2.15.03"
+PRIORITY="user"
+PORT="true"
+MAINTAINER="Linuxoid85"
+DESCRIPTION="NASM (Netwide Assembler) is an 80x86 assembler designed for portability and modularity. It includes a disassembler as well."
+OPT_DEPS="asciidoc-9.0.2 xmlto-0.0.28 <- for generating documentation"
+FILES="$(which nasm) $(which ndisasm) /usr/share/doc/nasm-2.15.03"

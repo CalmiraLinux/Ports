@@ -1,0 +1,8 @@
+NAME="mako"
+VERSION=""
+PRIORITY="user"
+PORT="true"
+MAINTAINER="Linuxoid85 <linuxoid85@gmail.com>"
+DESCRIPTION="Mako is a Python module that implements hyperfast and lightweight templating for the Python platform."
+REQ_DEPS="MarkupSafe-1.1.1"
+FILES="$(which mako-render3) /usr/lib/python3.8/site-packages/mako /usr/lib/python3.8/site-packages/Mako-1.1.3-py3.8.egg-info"

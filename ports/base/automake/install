@@ -6,9 +6,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/automake-1.16.3.tar.xz
-tar -xf automake-1.16.3.tar.xz
-cd automake-1.16.3
+VERSION="1.16.5"
+
+wget https://lx4u.ru/downloads/packages/automake-$VERSION.tar.xz
+tar -xf automake-$VERSION.tar.xz
+cd automake-$VERSION
 
 sed -i "s/''/etags/" t/tags-lisp-space.sh
 ./configure --prefix=/usr

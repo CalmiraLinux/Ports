@@ -1,0 +1,6 @@
+NAME="libdrm"
+VERSION="2.4.102"
+PRIORITY="user"
+PORT="true"
+MAINTAINER="Linuxoid85"
+FILES="/usr/include/libdrm /usr/include/libkms /usr/share/libdrm"

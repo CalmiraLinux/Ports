@@ -1,0 +1,11 @@
+{
+    "name": "zlib-ng",
+    "version": "2.0.5",
+    "description": "Пакет Zlib содержит библиотеку для сжатия и распаковки, которую используют некоторые программы. Zlib-ng - это форк Zlib с улучшенной оптимизацией и дополнительными патчами.",
+    "maintainer": "Linuxoid85",
+    "site": "https://github.com/zlib-ng/zlib-ng",
+    "priority": "system",
+    "libz": [
+        "libz.so"
+    ]
+}

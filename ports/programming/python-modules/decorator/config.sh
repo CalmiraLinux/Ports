@@ -1,0 +1,7 @@
+NAME="decorator"
+VERSION="4.4.2"
+PRIORITY="user"
+PORT="true"
+MAINTAINER="Linuxoid85 <linuxoid85@gmail.com>"
+DESCRIPTION="The goal of the decorator module is to make it easy to define signature-preserving function decorators and decorator factories."
+FILES="/usr/lib/python3.8/site-packages/decorator/decorator-4.4.2-py3.8.egg-info /usr/lib/python3.8/site-packages/decorator"

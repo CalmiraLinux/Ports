@@ -1,0 +1,8 @@
+{
+	"name": "glibc",
+	"version": "2.34",
+	"description": "Пакет содержит стандартную библиотеку языка Си (GNU C Library). Эта библиотека предоставляет функции для выделения памяти, поиска каталогов, открытия и закрытия файлов, чтения и записи файлов, обработки строк, соответствия шаблонов (pattern matching), арифметических операций, и т.д.",
+	"maintainer": "Linuxoid85 <linuxoid85@gmail.com>",
+	"site": "https://gnu.org/software/glibc",
+	"priority": "system"
+}

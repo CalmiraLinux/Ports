@@ -2,9 +2,11 @@
 
 cd /usr/src
 
-wget https://lx4u.ru/downloads/packages/tcl8.6.11-src.tar.gz
-tar -xf tcl8.6.11-src.tar.gz
-cd tcl8.6.11
+VERSION="8.6.12"
+
+wget https://lx4u.ru/downloads/packages/tcl$VERSION-src.tar.gz
+tar -xf tcl$VERSION-src.tar.gz
+cd tcl$VERSION
 
 SRCDIR=$(pwd)
 cd unix
@@ -37,3 +39,5 @@ make install-private-headers
 chmod -v u+w /usr/lib/libtcl8.6.so
 ln -sfv tclsh8.6 /usr/bin/tclsh
 mv /usr/share/man/man3/{Thread,Tcl_Thread}.3
+
+ln -sfv tclsh8.6 /usr/bin/tclsh

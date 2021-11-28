@@ -5,6 +5,7 @@
     "site": "https://download.savannah.gnu.org/releases/acl",
     "maintainer": "<linuxoid85@gmail.com>",
     "priority": "system",
+    "release": "1.1",
     "deps": {
         "required": [
             "attr",

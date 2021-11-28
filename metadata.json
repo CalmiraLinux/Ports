@@ -2,20 +2,13 @@
     "system_version": "1.1",
     "ports_stable": "https://github.com/CalmiraLinux/Ports/raw/stable",
     "ports_unstable": "https://github.com/CalmiraLinux/Ports/raw/testing",
-    "port_file": "ports-lx4_1.1.txz",
+    "port_file": "ports.txz",
     "updates": [
-        "console/dialog"
     ],
     "addings": [
-        "optional/fcron",
-        "programming/nasm",
-        "programming/python-modules/docutils",
-        "programming/python-modules/decorator",
-        "programming/python-modules/MarkupSafe",
-        "programming/python-modules/Mako"
+    	"Port information files"
     ],
     "removes": [
-        "gnome-shell"
     ],
-    "update_number": 2
+    "update_number": 3
 }

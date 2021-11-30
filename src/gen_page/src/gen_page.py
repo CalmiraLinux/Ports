@@ -80,8 +80,9 @@ class settings():
 
         data = json.load(f)
 
+        f.close()
         try:
-            return str(data["deps"][param])
+            return data["deps"][param]
         except KeyError:
             return "Параметры не предоставлены"
         

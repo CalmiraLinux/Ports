@@ -14,13 +14,22 @@ else
 	exit 1
 fi
 
-echo "NAME=$1
-VERSION=
-DESCRIPTION=
-SITE=
-MAINTAINER=Linuxoid85
-PRIORITY=system" > $1/config.sh
-vim $1/config.sh
+echo "{
+    \"name\": \"$1\",
+    \"version\": \"\",
+    \"description\": \"\",
+    \"site\": \"\",
+    \"maintainer\": \"Linuxoid85 <linuxoid85@gmail.com>\",
+    \"priority\": \"system\",
+    \"release\": \"1.1\",
+    \"deps\": {
+    	\"\"
+    },
+    \"bins\": \"\",
+    \"dirs\": \"\",
+    \"libs\": \"\"
+}" > $1/config.json
+vim $1/config.json
 
 if [ $1 != "Package" ]; then
 	echo "$1" > .conf

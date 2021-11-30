@@ -4,6 +4,8 @@
 #
 # (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
 
+set -Eeuo pipefail
+
 cd /usr/src
 
 wget https://lx4u.ru/downloads/packages/acl-2.3.1.tar.xz

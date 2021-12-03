@@ -61,7 +61,6 @@ echo "#!/bin/bash
 #
 # (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
 
-source /usr/lib/cpkg/other-functions.sh
 cd /usr/src
 
 VERSION=\"\" # Version of $1

@@ -1,10 +1,10 @@
 #!/bin/bash
+set -Eeuo pipefail
 # Build package mako from port
 # Port created by Linuxoid85 <linuxoid85@gmail.com>
 #
 # (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
 
-source /usr/lib/cpkg/other-functions.sh
 cd /usr/src
 
 VERSION="1.1.3" # Version of mako

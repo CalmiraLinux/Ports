@@ -1,4 +1,5 @@
 #!/bin/bash
+set -Eeuo pipefail
 
 cd /usr/src
 wget https://lx4u.ru/downloads/packages/xz-5.2.5.tar.xz

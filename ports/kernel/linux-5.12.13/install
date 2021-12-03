@@ -1,4 +1,5 @@
 #!/bin/bash
+set -Eeuo pipefail
 # Build package linux-5.12.13 from port
 # Port created by Linuxoid85
 #

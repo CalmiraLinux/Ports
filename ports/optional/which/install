@@ -1,4 +1,5 @@
 #!/bin/bash
+set -Eeuo pipefail
 # Build package which from port
 # Port created by Linuxoid85
 #
@@ -13,6 +14,7 @@
 
 cat > /usr/bin/which << "EOF"
 #!/bin/bash
+set -Eeuo pipefail
 type -pa "$@" | head -n 1 ; exit ${PIPESTATUS[0]}
 EOF
 chmod -v 755 /usr/bin/which

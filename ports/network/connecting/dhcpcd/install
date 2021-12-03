@@ -1,10 +1,10 @@
 #!/bin/bash
+set -Eeuo pipefail
 # Build package dhcpcd from port
 # Port created by Uknown author
 #
 # (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
 
-source /usr/lib/cpkg/other-functions.sh
 cd /usr/src
 
 VERSION="9.4.1" # Version of dhcpcd

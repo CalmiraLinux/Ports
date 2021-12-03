@@ -1,10 +1,10 @@
 #!/bin/bash
+set -Eeuo pipefail
 # Build package nasm from port
 # Port created by Linuxoid85
 #
 # (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
 
-source /usr/lib/cpkg/other-functions.sh
 cd /usr/src
 
 VERSION="2.15.03" # Version of nasm

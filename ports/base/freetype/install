@@ -1,4 +1,5 @@
 #!/bin/bash
+set -Eeuo pipefail
 # Build package freetype from port
 # Port created by Linuxoid85
 #

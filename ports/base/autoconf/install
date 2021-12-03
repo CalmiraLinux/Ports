@@ -1,10 +1,10 @@
 #!/bin/bash
+set -Eeuo pipefail
 # Build package autoconf from port
 # Port created by Linuxoid85
 #
 # (C) 2021 Michail [Linuxoid85] Krasnov <linuxoid85@gmail.com>
 
-set -Eeuo pipefail
 cd /usr/src
 
 wget https://lx4u.ru/downloads/packages/autoconf-2.71.tar.xz

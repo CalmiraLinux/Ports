@@ -1,4 +1,5 @@
 #!/bin/bash
+set -Eeuo pipefail
 # Build package libxcb from port
 # Port created by Linuxoid85
 #

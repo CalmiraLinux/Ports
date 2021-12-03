@@ -1,4 +1,5 @@
 #!/bin/bash
+set -Eeuo pipefail
 # Build package xorgproto from port
 # Port created by Linuxoid85
 #

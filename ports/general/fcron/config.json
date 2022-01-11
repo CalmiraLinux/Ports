@@ -1,0 +1,15 @@
+{
+	"name": "fcron",
+	"version": "3.2.1",
+	"description": "This package contains a periodical command sheduler which aims at replacing Vixie Cron",
+	"site": "http://fcron.free.fr",
+	"priority": "user",
+	"maintainer": "Michail Linuxoid85 Krasnov <kinuxoid85@gmail.com>",
+	"deps": {
+		"optional": [
+			"base/editors/vim",
+			"security/linux-pam",
+			"pst/docbook-utils"
+		]
+	}
+}

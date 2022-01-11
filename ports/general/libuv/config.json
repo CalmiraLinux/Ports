@@ -1,0 +1,14 @@
+{
+    "name": "libuv",
+    "version": "1.41.0",
+    "description": "The libuv package is a multi-platform support library with a focus on asynchronous I/O.",
+    "site": "https://linuv.org",
+    "priority": "user",
+    "maintainer": "Michail Linuxoid85 Krasnov <linuxoid85@gmail.com>",
+    "libs": [
+        "libuv.so"
+    ],
+    "dirs": [
+        "/usr/include/uv"
+    ]
+}

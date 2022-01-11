@@ -1,0 +1,31 @@
+#!/bin/bash
+set -Eeuo pipefail
+cd /usr/src/cmake-1.19.5
+
+# This command disables applications using cmake
+# from attempting to install files in /usr/lib64/
+sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
+
+# 1. '--system-libs': This switch forces the build
+# system to link against Zlib, Bzip2, cURL, nghttp2,
+# Expat and libarchive installed on the system
+# 2. '--no-system-jsoncpp': This switch removes the
+# JSON-C++ library from the list of system libraries. A
+# bundled version of that library is used instead.
+# 3. '--no-system-librhash': This switch removes the
+# librhash library from the list of system libraries
+# used. A bundled version of that library is used instead.
+
+## NOTE ##
+# If you won't to the build the 'general/cmake' port with
+# 'cmake-qui', please insert '--qt-gui' key to 'bootstrap'.
+# This is requires a 'x/qt' port!
+
+./bootstrap --prefix=/usr        \
+            --system-libs        \
+            --mandir=/share/man  \
+            --no-system-jsoncpp  \
+            --no-system-librhash \
+            --docdir=/share/doc/cmake-3.19.5
+make
+make install

@@ -1,0 +1,21 @@
+{
+    "name": "curl",
+    "version": "7.75.0",
+    "description": "The cURL package contains an utility and a library used for transferring files with URL syntax to any of the following protocols: FTP, FTPS, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS and FILE. Its ability to both download and upload files can be incorporated into other programs to support functions like streaming media.",
+    "site": "https://curl.haxx.se",
+    "priority": "user",
+    "maintainer": "Michail Linuxoid85 Krasnov <linuxoid85@gmail.com>",
+    "deps": {
+        "recommend": [
+            "basicnet/make-ca"
+        ],
+        "optional": [
+            "general/brotli",
+            "basicnet/c-ares",
+            "basicnet/gnutls",
+            "general/libidn2",
+            "basicnet/libpsl",
+            "general/libssh2"
+        ]
+    }
+}

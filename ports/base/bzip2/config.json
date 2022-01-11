@@ -1,8 +1,0 @@
-{
-	"name": "bzip2",
-	"version": "1.0.8",
-	"description": "Пакет содержит программы для сжатия и распаковки файлов. Он необходим для распаковки многих пакетов. Сжатие текстовых файлов при помощи программы bzip2 даёт больший процент сжатия, чем gzip.",
-	"site": "https://www.sourceware.org/pub/bzip2",
-	"maintainer": "Linuxoid85 <linuxoid85@gmail.com>",
-	"priority": "system"
-}

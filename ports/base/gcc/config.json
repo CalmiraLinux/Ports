@@ -1,8 +1,0 @@
-{
-	"name": "gcc",
-	"version": "11.2.0",
-	"description": "Пакет содержит набор компиляторов GNU для таких языков как Си и Си++.",
-	"maintainer": "Linuxoid85 <linuxoid85@gmail.com>",
-	"site": "https://gnu.org/software/gcc",
-	"priority": "system"
-}

@@ -74,14 +74,17 @@ $EDITOR install
 
 echo "Запись информации о пакете..."
 
-source install
-echo "NAME=\"$1\"
-VERSION=\"$VERSION\"
-PRIORITY=\"user\"
-PORT=\"true\"
-MAINTAINER=\"$AUTHOR\"
-" > config.sh
-$EDITOR config.sh
+echo "{
+    \"name\": \"$1\",
+    \"version\": \"\",
+    \"description\": \"\",
+    \"site\": \"\",
+    \"maintainer\": \"$AUTHOR\",
+    \"priority\": \"\"
+}
+" > config.json
+
+$EDITOR config.json
 cd ..
 
 unset AUTHOR

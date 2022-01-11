@@ -1,8 +1,0 @@
-{
-    "name": "iana-etc",
-    "version": "20211004",
-    "description": "Пакет Iana-Etc содержит данные для сетевых служб и протоколов.",
-    "maintainer": "Linuxoid85",
-    "site": "https://www.iana.org/protocols",
-    "priority": "system"
-}

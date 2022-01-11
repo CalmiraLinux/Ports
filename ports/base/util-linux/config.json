@@ -1,8 +1,0 @@
-{
-    "name": "util-linux",
-    "version": "2.37.2",
-    "description": "Содержит стандартный набор служебных утилит командной строки, такие как: утилиты для работы с файловой системой, консолью, разделами, и сообщениями.",
-    "maintainer": "Linuxoid85",
-    "site": "https://en.wikipedia.org/wiki/Util-linux",
-    "priority": "system"
-}

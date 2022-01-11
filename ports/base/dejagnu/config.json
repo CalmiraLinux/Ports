@@ -1,1 +1,0 @@
-{ "name": "dejagnu", "version": "1.6.2", "description": "Платформа для тестирования", "site": "site", "maintainer": "Linuxoid85", "priority": "system", "deps": { "required": [ "" ], "runtime": [ "" ], "test": [ "" ], "optional": [ "" ], "before": [ "" ], "conflict": [ "" ] } }

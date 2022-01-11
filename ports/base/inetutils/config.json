@@ -1,7 +1,0 @@
-{
-    "name": "inetituls",
-    "version": "2.2",
-    "description": "Пакет Inetutils содержит базовые программы для работы с сетью.",
-    "maintainer": "Linuxoid85",
-    "priority": "system"
-}

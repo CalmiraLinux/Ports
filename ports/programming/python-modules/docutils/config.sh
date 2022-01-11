@@ -1,8 +1,0 @@
-NAME="docutils"
-VERSION="0.16"
-PRIORITY="user"
-PORT="true"
-MAINTAINER="Linuxoid85 <linuxoid85@gmail.com>"
-DESCRIPTION="docutils is a set of Python modules and programs for processing plaintext docs into formats such as HTML, XML, or LaTeX."
-OPT_DEPS="Python-2.7.18"
-FILES="$(which rst2html4) $(which rst2html5) $(which rst2html) $(which rst2latex) $(which rst2man) $(which rst2odt_prepstyles) $(which rst2odt) $(which rst2pseudoxml) $(which rst2s5) $(which rst2xetex) $(which rst2xml) $(which rstpep2html) /usr/lib/python3.8/site-packages/docutils"

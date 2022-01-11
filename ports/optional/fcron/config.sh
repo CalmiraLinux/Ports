@@ -1,6 +1,0 @@
-NAME="fcron"
-VERSION="3.2.1"
-PRIORITY="user"
-PORT="true"
-MAINTAINER="Linuxoid85"
-FILES="$(which fcron) $(which fcrondyn) $(which fcronsighup) $(which fcrontab) /usr/share/doc/fcron-3.2.1 /var/spool/fcron"

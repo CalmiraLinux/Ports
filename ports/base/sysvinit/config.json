@@ -1,8 +1,0 @@
-{
-    "name": "sysvinit",
-    "version": "3.00",
-    "description": "Пакет Sysvinit содержит программы для управления загрузкой, выполнением, и выключением системы.",
-    "maintainer": "Linuxoid85",
-    "site": "https://savannah.nongnu.org/projects/sysvinit",
-    "priority": "system"
-}

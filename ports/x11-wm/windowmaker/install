@@ -2,7 +2,7 @@
 set -Eeuo pipefail
 cd /usr/src/WindowMaker-0.95.9
 
-source ./port-configuration.sh # This port settings
+source /usr/ports/x11-wm/windowmaker/port-configuration.sh # This port settings
 # $PREFIX - the installation prefix
 # $LANGS  - the supported languages (see './configure LINGUAS="list"' for more info)
 

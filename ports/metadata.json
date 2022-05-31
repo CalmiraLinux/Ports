@@ -12,7 +12,8 @@
         ]
     },
     "ports": [
-        "base/",
+        "base/make-ca",
+        "base/p11-kit",
         "base/editors/nano",
         "base/editors/vim",
         "base/editors/nvim",

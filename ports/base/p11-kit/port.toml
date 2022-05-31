@@ -1,0 +1,20 @@
+[package]
+name         = "p11-kit"
+version      = "0.24.1"
+description  = "PKG provided a way to load and enumerate PKCS #11 modules."
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "system"
+usage        = 44.0
+upgrade_mode = "soft"
+build_time   = 0.5
+
+[deps]
+recommend = ["base/libtasn", "mase/make-ca"]
+optional  = ["general/gtk-doc", "general-lib/libxlst", "postcpl/nss"]
+# GTK-Doc-1.33.2 libxlst-1.1.35 nss-3.75
+
+[port]
+url  = " https://github.com/p11-glue/p11-kit/releases/download/0.24.1"
+file = "p11-kit-0.24.1.tar.xz"
+md5  = "67b2539bdca6b4bedaeecc12864d2796"

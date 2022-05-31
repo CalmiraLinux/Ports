@@ -1,0 +1,5 @@
+[ports]
+name = "Michail Krasnov"
+email = "linuxoid85@gmail.com"
+years = "2021, 2022"
+releases = ["v1.2a2", "v1.2a3"]

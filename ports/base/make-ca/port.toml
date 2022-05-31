@@ -1,0 +1,19 @@
+[package]
+name         = "make-ca"
+version      = "1.10"
+description  = "Utility to deliver and manage a complete PKI configuration"
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "system"
+usage        = 6.6
+upgrade_mode = "soft"
+build_time   = 0.1
+
+[deps]
+required  = ["base/p11-kit"] # p11-kit-0.24.1
+optional  = ["postcpl/nss", "general/fcron"] # nss-3.75 fcron-3.2.1
+
+[port]
+url  = "https://github.com/lfs-book/make-ca/releases/download/v1.10"
+file = "make-ca-1.10.tar.xz"
+md5  = "74f1ad16d7a086ac76e0424fd4dfe67b"

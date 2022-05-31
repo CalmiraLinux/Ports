@@ -1,7 +1,0 @@
-{
-	"name": "libnl",
-	"version": "3.5.0",
-	"description": "The 'libnl' suite is collection of libraries providing APIs to netlink protocol based GNU/Linux",
-	"site": "https://github.com/thom311/libnl",
-	"priority": "system"
-}

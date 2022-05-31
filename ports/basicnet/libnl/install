@@ -1,8 +1,0 @@
-#!/bin/bash
-set -Eeuo pipefail
-
-cd /usr/src/libnl-3.5.0
-
-./configure --prefix=/usr --sysconfdir=/etc --disable-static
-make
-make install

@@ -1,0 +1,23 @@
+{
+    "system": {
+        "release": [
+            "1.2a2",
+            "1.2a3",
+            "1.2b1",
+            "1.2b2",
+            "1.2b3",
+            "1.2rc1",
+            "1.2rc2",
+            "1.2"
+        ]
+    },
+    "ports": [
+        "base/",
+        "base/editors/nano",
+        "base/editors/vim",
+        "base/editors/nvim",
+        "xorg/wm/",
+        "xorg/x11-libs/",
+        "xorg/x11-minimal/"
+    ]
+}

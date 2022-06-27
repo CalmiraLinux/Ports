@@ -17,8 +17,12 @@
         "base/editors/nano",
         "base/editors/vim",
         "base/editors/nvim",
+        "postcpl/btrfs-progs",
+        "postcpl/cracklib",
         "xorg/wm/",
         "xorg/x11-libs/",
-        "xorg/x11-minimal/"
+        "xorg/x11-minimal/XBE",
+        "xorg/x11-minimal/util-macros",
+        "xorg/x11-minimal/xorgproto"
     ]
 }

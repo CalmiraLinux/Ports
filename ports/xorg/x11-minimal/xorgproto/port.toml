@@ -1,0 +1,24 @@
+[package]
+name         = "xorgproto"
+version      = "2021.5"
+description  = "The header files required to build the X"
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "user"
+usage        = 8.3
+upgrade_mode = "hard"
+build_time   = 0.1
+
+[deps]
+required  = ["xorg/x11-minimal/util-macros"]
+recommend = []
+optional  = [
+    "pst/fop", "general/libxlst",
+    "pst/xmlto", "python-modules/asciidoc"
+]
+conflict  = []
+
+[port]
+url  = "https://xorg.freedesktop.org/archive/individual/proto/"
+file = "xorgproto-2021.5.tar.bz2"
+md5  = "bff0c9a6a060ecde954e255a2d1d9a22"

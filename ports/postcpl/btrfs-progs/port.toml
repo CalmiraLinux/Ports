@@ -1,0 +1,22 @@
+[package]
+name         = "btrfs-progs"
+version      = "5.16.2"
+description  = "The administration and debugging tools for the BTRFS"
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "user"
+usage        = 51
+upgrade_mode = "hard"
+build_time   = 0.2
+
+[deps]
+required  = ["general/lzo"]
+optional  = ["postcpl/lvm2", "postcpl/reiserfsprogs"]
+
+[build_deps]
+recommend = ["general/python_modules/asciidoc", "pst/xmlto"]
+
+[port]
+url  = "https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/"
+file = "btrfs-progs-v5.16.2.tar.xz"
+md5  = "31112fa4de9b9286b2bb1a560addc0f4"

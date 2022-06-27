@@ -1,0 +1,21 @@
+[package]
+name         = "XBE"
+version      = "1.0"
+description  = "Xorg Build Environment"
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "user"
+usage        = 0
+upgrade_mode = "hard"
+build_time   = 0
+
+[deps]
+required  = []
+recommend = []
+optional  = []
+conflict  = []
+
+[port]
+url  = "null"
+file = "null"
+md5  = "null"

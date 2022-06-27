@@ -1,0 +1,17 @@
+#!/bin/bash -e
+# Build script for 'xorgproto' port
+# Copyright (C) 2022 Michail Krasnov <linuxoid85@gmail.com>
+
+NAME="xorgproto"
+VERSION="2021.5"
+
+cd /usr/src/"$NAME-$VERSION"
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=$XORG_PREFIX -Dlegacy=true .. &&
+ninja
+
+ninja install &&
+mv -v $XORG_PREFIX/share/doc/xorgproto{,-2021.5}

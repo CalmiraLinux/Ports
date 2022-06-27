@@ -1,0 +1,19 @@
+[package]
+name         = "cracklib"
+version      = "2.9.7"
+description  = "A library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists"
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "user"
+usage        = 4.2
+upgrade_mode = "hard"
+build_time   = 0.1
+
+[deps]
+
+[build_deps]
+
+[port]
+url  = "https://github.com/cracklib/cracklib/releases/download/v2.9.7/"
+file = "cracklib-2.9.7.tar.bz2"
+md5  = "0d68de25332cee5660850528a385427f"

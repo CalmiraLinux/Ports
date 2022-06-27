@@ -1,0 +1,32 @@
+#!/bin/bash -e
+# Build script for 'btrfs-progs' package
+# Copyright (C) 2021, 2022 Michail Krasnov <linuxoid85@gmail.com>
+
+NAME="btrfs-progs"
+VERSION="5.16.2"
+
+cd /usr/src/"$NAME-$VERSION"
+
+echo -e "\e[1m--== WARNING ==--\e[0m"
+
+cat << "EOF"
+Enable the following option in the kernel configuration and recompile the kernel
+
+    File systems --->
+      <*/M> Btrfs filesystem support [CONFIG_BTRFS_FS]
+
+In addition to the above and to the options required for LVM2-2.03.15 and
+reiserfsprogs-3.6.27, the following options must be enabled for running tests:
+
+    File systems  --->
+      [*]   Btrfs POSIX Access Control Lists      [CONFIG_BTRFS_FS_POSIX_ACL]
+      [*]   ReiserFS extended attributes          [CONFIG_REISERFS_FS_XATTR]
+      [*]     ReiserFS POSIX Access Control Lists [CONFIG_REISERFS_FS_POSIX_ACL]
+EOF
+
+sleep 3
+
+./configure --prefix=/usr
+
+make
+make install

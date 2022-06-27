@@ -1,0 +1,11 @@
+#!/bin/bash -e
+# Build script for 'util-macros' port
+# Copyright (C) 2022 Michail Krasnov <linuxoid85@gmail.com>
+
+NAME="util-macros"
+VERSION="1.19.3"
+
+cd /usr/src/"$NAME-$VERSION"
+
+./configure $XORG_CONFIG
+make install

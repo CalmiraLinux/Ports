@@ -1,0 +1,222 @@
+## Ports v1.2a2
+
+- 04.06.2022 -- 06.06.2022:
+    - [ ] Xorg (`xorg/x11-{libs,minimal}`, `xorg/wm`):
+        - [X] XBE;
+        - [X] util-macros-1.19.3;
+        - [X] xorgproto-2021.5;
+        - [ ] libXau-1.0.9;
+        - [ ] libXdmcp-1.1.3;
+        - [ ] xcb-proto-1.14.1;
+        - [ ] libxcb-1.14;
+        - [ ] Xorg Libs:
+            - xtrans-1.4.0;
+            - libX11-1.7.3.1;
+            - libXext-1.3.4;
+            - libFS-1.0.8;
+            - libICE-1.0.10;
+            - libSM-1.2.3;
+            - libXSxrnSaver-1.2.3;
+            - libXt-1.2.1;
+            - libXmu-1.1.3;
+            - libXpm-3.5.13;
+            - libXaw-1.0.14;
+            - libXfixes-6.0.0;
+            - libXcomposite-0.4.5;
+            - libXrender-0.9.10;
+            - libXcursor-1.2.0;
+            - libXdamage-1.1.5;
+            - libfontenc-1.1.4;
+            - libXfont2-2.0.5;
+            - libXft-2.3.4;
+            - libXi-1.8;
+            - libXinerama-1.1.4;
+            - libXrandr-1.5.2;
+            - libXres-1.2.1;
+            - libXtst-1.2.3;
+            - libXv-1.0.11;
+            - libXvMC-1.0.12;
+            - libXxf86dga-1.1.5;
+            - libXxf86vm-1.1.4;
+            - libdmx-1.1.4;
+            - libpciaccess-0.16;
+            - libxkbfile-1.1.0;
+            - libxshmfence-1.3;
+        - [ ] libxcvt-0.1.1;
+        - [ ] xcb-util-0.4.0;
+        - [ ] xcb-util-image-0.4.0;
+        - [ ] xcb-util-keysyms-0.4.0;
+        - [ ] xcb-util-renderutil-0.3.9;
+        - [ ] xcb-util-wm-0.4.1;
+        - [ ] xcb-util-cursor-0.1.3;
+        - [ ] mesa-21.3.6;
+        - [ ] xbitmaps-1.1.2;
+        - [ ] Xorg Apps;
+        - [ ] xcursor-themes-1.0.6;
+        - [ ] Xorg Fonts;
+        - [ ] XKeyboardConfig-2.35.1;
+        - [ ] XWayland-22.1.0;
+        - [ ] Xorg Server 21.1.3;
+        - [ ] Xorg Drivers;
+        - [ ] xinit-1.4.1;
+        - [ ] Xorg Legacy;
+    - [ ] WM:
+        - [ ] twm-1.0.11;
+        - [ ] fluxbox-1.3.7;
+        - [ ] openbox-3.6.1;
+        - [ ] window-maker-x.x.x;
+        - [ ] i3-gaps-x.x.x;
+    - [ ] Other software:
+        - [ ] xterm-370;
+        - [ ] xclock-1.0.9;
+        - [ ] Additional fonts;
+    - [ ] Xorg Configs.
+- 07.06.2022 -- 25.06.2022:
+    - [ ] Base system configs, build instructions & ports:
+        - [ ] iana-etc;
+        - [ ] glibc;
+        - [ ] zlib;
+        - [ ] bzip2;
+        - [ ] xz;
+        - [ ] zstd;
+        - [ ] file;
+        - [ ] readline;
+        - [ ] m4;
+        - [ ] bc;
+        - [ ] flex;
+        - [ ] binutils;
+        - [ ] gmp;
+        - [ ] mpfr;
+        - [ ] mpc;
+        - [ ] attr;
+        - [ ] acl;
+        - [ ] libcap;
+        - [ ] shadow;
+        - [ ] gcc;
+        - [ ] pkg-config;
+        - [ ] ncurses;
+        - [ ] sed;
+        - [ ] psmisc;
+        - [ ] gettext;
+        - [ ] bison;
+        - [ ] grep;
+        - [ ] bash;
+        - [ ] libtool;
+        - [ ] gdbm;
+        - [ ] gperf;
+        - [ ] expat;
+        - [ ] inetutils;
+        - [ ] less;
+        - [ ] perl;
+        - [ ] xml-parser;
+        - [ ] intltool;
+        - [ ] autoconf;
+        - [ ] automake;
+        - [ ] openssl;
+        - [ ] kmod;
+        - [ ] libelf (elfutils);
+        - [ ] libffi;
+        - [ ] python;
+        - [ ] ninja;
+        - [ ] meson;
+        - [ ] coreutils;
+        - [ ] check;
+        - [ ] diffutils;
+        - [ ] gawk;
+        - [ ] findutils;
+        - [ ] groff;
+        - [ ] gzip;
+        - [ ] iproute2;
+        - [ ] kbd;
+        - [ ] libpipeline;
+        - [ ] make;
+        - [ ] patch;
+        - [ ] tar;
+        - [ ] texinfo;
+        - [ ] neovim;
+        - [ ] eudev;
+        - [ ] man-db;
+        - [ ] procps-ng;
+        - [ ] util-linux;
+        - [ ] e2fsprogs;
+        - [ ] sysklogd;
+        - [ ] sysvinit;
+        - [ ] make-ca;
+        - [ ] p11-kit;
+        - [ ] libtasn1;
+        - [ ] freetype;
+        - [ ] fontconfig;
+        - [ ] which (bash script);
+        - [ ] wget;
+        - [ ] GPM;
+        - [ ] fuse;
+        - [ ] grub;
+        - [ ] linux-libre;
+        - [ ] sysv-bootscripts;
+- 01.07.2022 -- 01.08.2022:
+    - Additional soft:
+        - Security:
+            - [ ] crack-lib;
+            - [ ] cryptsetup;
+            - [ ] cyrus SASL;
+            - [ ] gnupg;
+            - [ ] gnutls;
+            - [ ] gpgme;
+            - [ ] iptables;
+            - [ ] libcap with PAM;
+            - [ ] linux-PAM;
+            - [ ] liboauth;
+            - [ ] libpwquality;
+            - [ ] MIT Kerberos;
+            - [ ] nettle;
+            - [ ] nss;
+            - [ ] openssh;
+            - [ ] stunnel;
+            - [ ] sudo;
+        - File System & Disk Management
+            - [ ] btrfs-progs;
+            - [ ] dosfstools;
+            - [ ] LVM2;
+            - [ ] mdadm;
+            - [ ] ntfs-3g;
+            - [ ] gptfdisk;
+            - [ ] parted;
+            - [ ] smartmontools;
+            - [ ] sshfs;
+            - UEFI Boot:
+                - [ ] efivar;
+                - [ ] efibootmgr;
+                - [ ] GRUB for EFI;
+        - Shells:
+            - [ ] tcsh;
+            - [ ] zsh;
+        - Virtualization:
+            - [ ] qemu
+        - System Utilities:
+            - [ ] fcron;
+            - [ ] mc;
+            - [ ] hdparm;
+            - [ ] pciutils;
+            - [ ] libusb;
+            - [ ] usbutils;
+            - [ ] zip;
+        - Programming:
+            - [ ] git;
+            - [ ] nasm;
+            - [ ] yasm;
+            - [ ] rustc;
+            - [ ] ruby;
+            - [ ] slang;
+            - [ ] vala;
+        - Network:
+            - [ ] dhcpcd;
+            - [ ] DHCP;
+            - [ ] curl;
+            - [ ] WT;
+            - [ ] wpa_supplicant;
+            - [ ] links;
+            - [ ] lynx;
+            - [ ] fetchmail;
+            - [ ] libnsl;
+        - Servers:
+            - [ ] vsftpd;

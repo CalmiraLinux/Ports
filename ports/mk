@@ -5,19 +5,19 @@ import sys
 import toml
 import shutil
 
-conf_data = toml.load('mkport.toml')
-years = conf_data['ports']['years']
-maintainer = conf_data['ports']['name']
-email = conf_data['ports']['email']
-releases = conf_data['ports']['releases']
+conf = toml.load('mkport.toml')
+years = conf['ports']['years']
+maintainer = conf['ports']['name']
+email = conf['ports']['email']
+releases = conf['ports']['releases']
 
 cat = sys.argv[1]
 port = sys.argv[2]
 vers = sys.argv[3]
 
 INSTALL = f"""#!/bin/bash -e
-# Build script for '{port}' port
-# Copyright (C) 2022 Michail Krasnov <linuxoid85@gmail.com>
+# Build script for '{port}' package
+# Copyright (C) {years} {maintainer} <{email}>
 
 NAME="{port}"
 VERSION="{vers}"
@@ -43,13 +43,17 @@ recommend = []
 optional  = []
 conflict  = []
 
+[build_deps]
+required  = []
+recommend = []
+
 [port]
 url  = ""
 file = ""
 md5  = ""
 """
 
-port = f"ports/{cat}/{port}"
+port = f"{cat}/{port}"
 
 if os.path.isdir(port):
     shutil.rmtree(port)

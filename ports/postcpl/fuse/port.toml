@@ -1,0 +1,21 @@
+[package]
+name         = "fuse"
+version      = "3.10.5"
+description  = "FUSE (Filesystem in Userspace) is a simple interface for userspace programs to export a virtual filesystem to the Linux kernel. Fuse also aims to provide a secure method for non privileged users to create and mount their own filesystem implementations."
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "user"
+usage        = 161
+upgrade_mode = "hard"
+build_time   = 0.1
+
+[deps]
+require = ["none"]
+
+[build_deps]
+recommend = ["doxygen", "pytest"]
+
+[port]
+url  = "https://github.com/libfuse/libfuse/releases/download/fuse-3.10.5/"
+file = "fuse-3.10.5.tar.xz"
+md5  = "d2eb13af5288047dc942fc84e608cfbd"

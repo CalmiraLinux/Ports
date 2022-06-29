@@ -1,0 +1,55 @@
+#!/bin/bash -e
+# Build script for 'fuse' package
+# Copyright (C) 2021, 2022 Michail Krasnov <linuxoid85@gmail.com>
+
+NAME="fuse"
+VERSION="3.10.5"
+
+cd /usr/src/"$NAME-$VERSION"
+
+echo -e "\e[1m--== WARNING ==--\e[0m"
+
+cat << "EOF"
+Enable the following options in the kernel configuration and recompile the
+kernel if necessary:
+
+    File systems  --->
+      <*/M> FUSE (Filesystem in Userspace) support [CONFIG_FUSE_FS]
+
+Character devices in user space should be enabled too for running the tests:
+
+    File systems  --->
+      <*/M> FUSE (Filesystem in Userspace) support  [CONFIG_FUSE_FS]
+      <*/M>   Character device in Userspace support [CONFIG_CUSE]
+EOF
+
+sed -i '/^udev/,$ s/^/#/' util/meson.build
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr --buildtype=release ..
+ninja
+
+ninja install
+chmod u+s /usr/bin/fusermount3
+
+cd ..
+install -v -m755 -d /usr/share/doc/fuse-$VERSION
+install -v -m644    doc/{README.NFS,kernel.txt} \
+                    /usr/share/doc/fuse-$VERSION
+cp -Rv doc/html     /usr/share/doc/fuse-$VERSION
+
+if [ ! -f "/etc/fuse.conf" ]; then
+cat > /etc/fuse.conf << "EOF"
+# Set the maximum number of FUSE mounts allowed to non-root users.
+# The default is 1000.
+#
+#mount_max = 1000
+
+# Allow non-root users to specify the 'allow_other' or 'allow_root'
+# mount options.
+#
+#user_allow_other
+EOF
+fi

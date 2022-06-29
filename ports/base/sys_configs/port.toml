@@ -1,0 +1,21 @@
+[package]
+name         = "extra_configs"
+version      = "0.1"
+description  = "Базовые конфиги системы"
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "system"
+usage        = 0.1
+upgrade_mode = "hard"
+build_time   = 0.01
+
+[deps]
+required  = ["base/bash", "base/coreutils"]
+
+[build_deps]
+required  = ["base/coreutils"]
+
+[port]
+url  = "none"
+file = "none"
+md5  = "none"

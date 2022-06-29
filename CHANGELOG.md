@@ -1,6 +1,7 @@
 ## Ports v1.2a2
 
 - 29.06.2022 linuxoid85
+    - Добавление порта `base/sys_configs`;
     - Добавление порта `postcpl/ntfs-3g`;
     - Добавление порта `postcpl/dosfstools`;
     - Добавление порта `postcpl/fuse`;

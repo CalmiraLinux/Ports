@@ -1,6 +1,7 @@
 ## Ports v1.2a2
 
 - 29.06.2022 linuxoid85
+    - Добавление порта `postcpl/dosfstools`;
     - Добавление порта `postcpl/fuse`;
 
 - 28.06.2022 linuxoid85

@@ -1,0 +1,21 @@
+#!/bin/bash -e
+# Build script for 'libuv' package
+# Copyright (C) 2021, 2022 Michail Krasnov <linuxoid85@gmail.com>
+
+NAME="libuv"
+VERSION="1.43.0"
+
+cd /usr/src/"$NAME-$VERSION"
+
+echo -e "\a\e[1;31m--== CAUTION ==--\e[0m"
+cat << "EOF"
+The sh autogen.sh command below fails if the ACLOCAL environment variable is set
+as specified in Xorg-7. If it is used, ACLOCAL needs to be unset for this
+package and then reset for other packages.
+EOF
+
+sh autogen.sh
+./configure --prefix=/usr --disable-static
+
+make
+make install

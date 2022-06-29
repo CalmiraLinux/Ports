@@ -1,0 +1,19 @@
+#!/bin/bash -e
+# Build script for 'nodejs' package
+# Copyright (C) 2021, 2022 Michail Krasnov <linuxoid85@gmail.com>
+
+NAME="node"
+VERSION="16.14.0"
+
+cd /usr/src/"$NAME-v$VERSION"
+
+./configure --prefix=/usr          \
+            --shared-cares         \
+            --shared-libuv         \
+            --shared-openssl       \
+            --shared-nghttp2       \
+            --shared-zlib          \
+            --with-intl=system-icu
+
+make install
+ln -sf node /usr/share/doc/node-$VERSION

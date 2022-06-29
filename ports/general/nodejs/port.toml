@@ -1,0 +1,25 @@
+[package]
+name         = "nodejs"
+version      = "16.14.0"
+description  = "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine"
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "user"
+usage        = 750
+upgrade_mode = "hard"
+build_time   = 14
+
+[deps]
+required  = ["general/which_script"]
+recommend = ["basicnet/c-ares", "general/icu", "general/libuv", "basicnet/nghttp2"]
+optional  = []
+conflict  = []
+
+[build_deps]
+required  = []
+recommend = []
+
+[port]
+url  = "https://nodejs.org/dist/v16.14.0/"
+file = "node-v16.14.0.tar.xz"
+md5  = "46a63d98585a4b76542776e5d5b50d15"

@@ -1,0 +1,21 @@
+[package]
+name         = "which_orig"
+version      = "2.21"
+description  = "shows the full path of (shell) commands installed in your PATH"
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "user"
+usage        = 1
+upgrade_mode = "hard"
+build_time   = 0.1
+
+[deps]
+required  = ["base/bash"]
+
+[build_deps]
+required  = ["base/bash"]
+
+[port]
+url  = "https://ftp.gnu.org/gnu/which/"
+file = "which-2.21.tar.gz"
+md5  = "097ff1a324ae02e0a3b0369f07a7544a"

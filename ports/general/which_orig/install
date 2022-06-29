@@ -1,0 +1,13 @@
+#!/bin/bash -e
+# Build script for 'which_orig' package
+# Copyright (C) 2021, 2022 Michail Krasnov <linuxoid85@gmail.com>
+
+NAME="which_orig"
+VERSION="2.21"
+
+cd /usr/src/"$NAME-$VERSION"
+
+./configure --prefix=/usr
+
+make
+make install

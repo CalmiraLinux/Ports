@@ -1,0 +1,24 @@
+[package]
+name         = "cmake"
+version      = "3.22.2"
+description  = "The CMake package contains a modern toolset used for generating Makefiles"
+maintainer   = "Michail Krasnov <linuxoid85@gmail.com>"
+releases     = ['v1.2a2', 'v1.2a3']
+priority     = "system"
+usage        = 334
+upgrade_mode = "hard"
+build_time   = 2.1
+
+[deps]
+required  = ["base/libuv"]
+recommend = ["basicnet/curl", "general/libarchive", "basicnet/nghttp2"]
+optional  = ["base/gcc", "general/git", "general/mercurial", "xorg/x11-libs/qt"]
+
+[build_deps]
+required  = []
+recommend = []
+
+[port]
+url  = "https://cmake.org/files/v3.22/"
+file = "cmake-3.22.2.tar.gz"
+md5  = "f96b91224aa14b09565325b51d60af43"

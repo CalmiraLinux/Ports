@@ -1,0 +1,19 @@
+#!/bin/bash -e
+# Build script for 'cmake' package
+# Copyright (C) 2021, 2022 Michail Krasnov <linuxoid85@gmail.com>
+
+NAME="cmake"
+VERSION="3.22.2"
+
+cd /usr/src/"$NAME-$VERSION"
+
+sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
+./bootstrap --prefix=/usr        \
+            --system-libs        \
+            --mandir=/share/man  \
+            --no-system-jsoncpp  \
+            --no-system-librhash \
+            --docdir=/share/doc/cmake-$VERSION
+
+make
+make install

@@ -18,6 +18,7 @@ vers = sys.argv[3]
 INSTALL = f"""#!/bin/bash -e
 # Build script for '{port}' package
 # Copyright (C) {years} {maintainer} <{email}>
+# No war/Нет войне
 
 NAME="{port}"
 VERSION="{vers}"

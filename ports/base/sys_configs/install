@@ -3,9 +3,12 @@
 # Copyright (C) 2021, 2022 Michail Krasnov <linuxoid85@gmail.com>
 
 cat > /etc/issue << "EOF"
-Welcome to Calmira GNU/Linux-libre, the free distribution of GNU/Linux-libre, which aims to create a minimal system from which the user himself builds the distribution he needs.
+Welcome to Calmira GNU/Linux-libre, the free distribution of GNU/Linux-libre,
+which aims to create a minimal system from which the user himself builds the
+distribution he needs.
 
-Calmira GNU/Linux-libre has its own ideology, reminiscent of KISS. She puts the following as her main postulates:
+Calmira GNU/Linux-libre has its own ideology, reminiscent of KISS. She puts the
+following as her main postulates:
 
 * Do not use non-free software;
 * Do not use bloated and/or non-functional software;
